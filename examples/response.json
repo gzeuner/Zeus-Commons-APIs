@@ -1,0 +1,696 @@
+{
+  "contentData": {
+    "agents": {
+      "A101": {
+        "agent_code": "A101",
+        "agent_name": "John Smith",
+        "working_area": "Berlin",
+        "commission": "10.50",
+        "phone_no": "1234567890",
+        "country": "Germany",
+        "orders": {
+          "1": {
+            "ord_num": "1",
+            "ord_amount": "1000.00",
+            "advance_amount": "500.00",
+            "ord_date": "2023-09-10",
+            "cust_code": "C101",
+            "agent_code": "A101",
+            "ord_description": "Luxuriöse Urlaubsbuchung für eine Traumreise",
+            "customers": {
+              "C101": {
+                "cust_code": "C101",
+                "cust_name": "Luisa Torres",
+                "cust_city": "Berlin",
+                "working_area": "Berlin",
+                "cust_country": "Germany",
+                "grade": "1",
+                "opening_amt": "5000.00",
+                "receive_amt": "3000.00",
+                "payment_amt": "2000.00",
+                "outstanding_amt": "1000.00",
+                "phone_no": "+491122334455",
+                "agent_code": "A101",
+                "revenue": {
+                  "A101": {
+                    "agent_code": "A101",
+                    "agent_name": "John Smith",
+                    "cumulative_revenue": "5900.00"
+                  }
+                }
+              }
+            }
+          },
+          "9": {
+            "ord_num": "9",
+            "ord_amount": "2700.00",
+            "advance_amount": "1300.00",
+            "ord_date": "2023-09-02",
+            "cust_code": "C109",
+            "agent_code": "A101",
+            "ord_description": "Luxuriöses Wellness-Paket für Entspannung pur",
+            "customers": {
+              "C109": {
+                "cust_code": "C109",
+                "cust_name": "Müller Schmidt",
+                "cust_city": "Berlin",
+                "working_area": "Berlin",
+                "cust_country": "Germany",
+                "grade": "1",
+                "opening_amt": "5500.00",
+                "receive_amt": "3200.00",
+                "payment_amt": "2200.00",
+                "outstanding_amt": "1100.00",
+                "phone_no": "+491122334499",
+                "agent_code": "A101",
+                "revenue": {
+                  "A101": {
+                    "agent_code": "A101",
+                    "agent_name": "John Smith",
+                    "cumulative_revenue": "5900.00"
+                  }
+                }
+              }
+            }
+          },
+          "11": {
+            "ord_num": "11",
+            "ord_amount": "1400.00",
+            "advance_amount": "600.00",
+            "ord_date": "2023-08-31",
+            "cust_code": "C101",
+            "agent_code": "A101",
+            "ord_description": "Weitere Buchung für den Traumurlaub",
+            "customers": {
+              "C101": {
+                "cust_code": "C101",
+                "cust_name": "Luisa Torres",
+                "cust_city": "Berlin",
+                "working_area": "Berlin",
+                "cust_country": "Germany",
+                "grade": "1",
+                "opening_amt": "5000.00",
+                "receive_amt": "3000.00",
+                "payment_amt": "2000.00",
+                "outstanding_amt": "1000.00",
+                "phone_no": "+491122334455",
+                "agent_code": "A101",
+                "revenue": {
+                  "A101": {
+                    "agent_code": "A101",
+                    "agent_name": "John Smith",
+                    "cumulative_revenue": "5900.00"
+                  }
+                }
+              }
+            }
+          },
+          "12": {
+            "ord_num": "12",
+            "ord_amount": "800.00",
+            "advance_amount": "400.00",
+            "ord_date": "2023-08-30",
+            "cust_code": "C101",
+            "agent_code": "A101",
+            "ord_description": "Zusätzliche Reiseaktivitäten",
+            "customers": {
+              "C101": {
+                "cust_code": "C101",
+                "cust_name": "Luisa Torres",
+                "cust_city": "Berlin",
+                "working_area": "Berlin",
+                "cust_country": "Germany",
+                "grade": "1",
+                "opening_amt": "5000.00",
+                "receive_amt": "3000.00",
+                "payment_amt": "2000.00",
+                "outstanding_amt": "1000.00",
+                "phone_no": "+491122334455",
+                "agent_code": "A101",
+                "revenue": {
+                  "A101": {
+                    "agent_code": "A101",
+                    "agent_name": "John Smith",
+                    "cumulative_revenue": "5900.00"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "A102": {
+        "agent_code": "A102",
+        "agent_name": "Maria García",
+        "working_area": "Paris",
+        "commission": "12.00",
+        "phone_no": "9876543210",
+        "country": "France",
+        "orders": {
+          "2": {
+            "ord_num": "2",
+            "ord_amount": "1500.00",
+            "advance_amount": "700.00",
+            "ord_date": "2023-09-09",
+            "cust_code": "C102",
+            "agent_code": "A102",
+            "ord_description": "Commande exclusive de bijoux artisanaux",
+            "customers": {
+              "C102": {
+                "cust_code": "C102",
+                "cust_name": "Sven Hansen",
+                "cust_city": "Paris",
+                "working_area": "Paris",
+                "cust_country": "France",
+                "grade": "2",
+                "opening_amt": "6000.00",
+                "receive_amt": "3500.00",
+                "payment_amt": "2500.00",
+                "outstanding_amt": "1500.00",
+                "phone_no": "+331122334455",
+                "agent_code": "A102",
+                "revenue": {
+                  "A102": {
+                    "agent_code": "A102",
+                    "agent_name": "Maria García",
+                    "cumulative_revenue": "9400.00"
+                  }
+                }
+              }
+            }
+          },
+          "6": {
+            "ord_num": "6",
+            "ord_amount": "1200.00",
+            "advance_amount": "600.00",
+            "ord_date": "2023-09-05",
+            "cust_code": "C106",
+            "agent_code": "A102",
+            "ord_description": "Commande spéciale de bijoux exquis",
+            "customers": {
+              "C106": {
+                "cust_code": "C106",
+                "cust_name": "François Dubois",
+                "cust_city": "Paris",
+                "working_area": "Paris",
+                "cust_country": "France",
+                "grade": "2",
+                "opening_amt": "6500.00",
+                "receive_amt": "3800.00",
+                "payment_amt": "2700.00",
+                "outstanding_amt": "1800.00",
+                "phone_no": "+331122334466",
+                "agent_code": "A102",
+                "revenue": {
+                  "A102": {
+                    "agent_code": "A102",
+                    "agent_name": "Maria García",
+                    "cumulative_revenue": "9400.00"
+                  }
+                }
+              }
+            }
+          },
+          "13": {
+            "ord_num": "13",
+            "ord_amount": "1700.00",
+            "advance_amount": "800.00",
+            "ord_date": "2023-08-29",
+            "cust_code": "C102",
+            "agent_code": "A102",
+            "ord_description": "Zusätzliche Schmuckstücke",
+            "customers": {
+              "C102": {
+                "cust_code": "C102",
+                "cust_name": "Sven Hansen",
+                "cust_city": "Paris",
+                "working_area": "Paris",
+                "cust_country": "France",
+                "grade": "2",
+                "opening_amt": "6000.00",
+                "receive_amt": "3500.00",
+                "payment_amt": "2500.00",
+                "outstanding_amt": "1500.00",
+                "phone_no": "+331122334455",
+                "agent_code": "A102",
+                "revenue": {
+                  "A102": {
+                    "agent_code": "A102",
+                    "agent_name": "Maria García",
+                    "cumulative_revenue": "9400.00"
+                  }
+                }
+              }
+            }
+          },
+          "14": {
+            "ord_num": "14",
+            "ord_amount": "2200.00",
+            "advance_amount": "1000.00",
+            "ord_date": "2023-08-28",
+            "cust_code": "C102",
+            "agent_code": "A102",
+            "ord_description": "Ersatzteile für Schmuckdesign",
+            "customers": {
+              "C102": {
+                "cust_code": "C102",
+                "cust_name": "Sven Hansen",
+                "cust_city": "Paris",
+                "working_area": "Paris",
+                "cust_country": "France",
+                "grade": "2",
+                "opening_amt": "6000.00",
+                "receive_amt": "3500.00",
+                "payment_amt": "2500.00",
+                "outstanding_amt": "1500.00",
+                "phone_no": "+331122334455",
+                "agent_code": "A102",
+                "revenue": {
+                  "A102": {
+                    "agent_code": "A102",
+                    "agent_name": "Maria García",
+                    "cumulative_revenue": "9400.00"
+                  }
+                }
+              }
+            }
+          },
+          "15": {
+            "ord_num": "15",
+            "ord_amount": "2800.00",
+            "advance_amount": "1200.00",
+            "ord_date": "2023-08-27",
+            "cust_code": "C102",
+            "agent_code": "A102",
+            "ord_description": "Weitere handgefertigte Schmuckstücke",
+            "customers": {
+              "C102": {
+                "cust_code": "C102",
+                "cust_name": "Sven Hansen",
+                "cust_city": "Paris",
+                "working_area": "Paris",
+                "cust_country": "France",
+                "grade": "2",
+                "opening_amt": "6000.00",
+                "receive_amt": "3500.00",
+                "payment_amt": "2500.00",
+                "outstanding_amt": "1500.00",
+                "phone_no": "+331122334455",
+                "agent_code": "A102",
+                "revenue": {
+                  "A102": {
+                    "agent_code": "A102",
+                    "agent_name": "Maria García",
+                    "cumulative_revenue": "9400.00"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "A103": {
+        "agent_code": "A103",
+        "agent_name": "Hans Müller",
+        "working_area": "Madrid",
+        "commission": "9.75",
+        "phone_no": "5678901234",
+        "country": "Spain",
+        "orders": {
+          "3": {
+            "ord_num": "3",
+            "ord_amount": "2000.00",
+            "advance_amount": "900.00",
+            "ord_date": "2023-09-08",
+            "cust_code": "C103",
+            "agent_code": "A103",
+            "ord_description": "Desarrollo de software personalizado para tu negocio",
+            "customers": {
+              "C103": {
+                "cust_code": "C103",
+                "cust_name": "Elena López",
+                "cust_city": "Madrid",
+                "working_area": "Madrid",
+                "cust_country": "Spain",
+                "grade": "3",
+                "opening_amt": "7000.00",
+                "receive_amt": "4000.00",
+                "payment_amt": "3000.00",
+                "outstanding_amt": "1000.00",
+                "phone_no": "+341122334455",
+                "agent_code": "A103",
+                "revenue": {
+                  "A103": {
+                    "agent_code": "A103",
+                    "agent_name": "Hans Müller",
+                    "cumulative_revenue": "12700.00"
+                  }
+                }
+              }
+            }
+          },
+          "8": {
+            "ord_num": "8",
+            "ord_amount": "2200.00",
+            "advance_amount": "1000.00",
+            "ord_date": "2023-09-03",
+            "cust_code": "C108",
+            "agent_code": "A103",
+            "ord_description": "Desarrollo de software de vanguardia para empresas",
+            "customers": {
+              "C108": {
+                "cust_code": "C108",
+                "cust_name": "Elena López",
+                "cust_city": "Barcelona",
+                "working_area": "Barcelona",
+                "cust_country": "Spain",
+                "grade": "4",
+                "opening_amt": "8100.00",
+                "receive_amt": "4600.00",
+                "payment_amt": "3600.00",
+                "outstanding_amt": "1500.00",
+                "phone_no": "+341122334488",
+                "agent_code": "A103",
+                "revenue": {
+                  "A103": {
+                    "agent_code": "A103",
+                    "agent_name": "Hans Müller",
+                    "cumulative_revenue": "12700.00"
+                  }
+                }
+              }
+            }
+          },
+          "16": {
+            "ord_num": "16",
+            "ord_amount": "2500.00",
+            "advance_amount": "1000.00",
+            "ord_date": "2023-08-26",
+            "cust_code": "C103",
+            "agent_code": "A103",
+            "ord_description": "Zusätzliche Lizenzgebühren für Software",
+            "customers": {
+              "C103": {
+                "cust_code": "C103",
+                "cust_name": "Elena López",
+                "cust_city": "Madrid",
+                "working_area": "Madrid",
+                "cust_country": "Spain",
+                "grade": "3",
+                "opening_amt": "7000.00",
+                "receive_amt": "4000.00",
+                "payment_amt": "3000.00",
+                "outstanding_amt": "1000.00",
+                "phone_no": "+341122334455",
+                "agent_code": "A103",
+                "revenue": {
+                  "A103": {
+                    "agent_code": "A103",
+                    "agent_name": "Hans Müller",
+                    "cumulative_revenue": "12700.00"
+                  }
+                }
+              }
+            }
+          },
+          "17": {
+            "ord_num": "17",
+            "ord_amount": "2800.00",
+            "advance_amount": "1200.00",
+            "ord_date": "2023-08-25",
+            "cust_code": "C103",
+            "agent_code": "A103",
+            "ord_description": "Software-Update und Wartung",
+            "customers": {
+              "C103": {
+                "cust_code": "C103",
+                "cust_name": "Elena López",
+                "cust_city": "Madrid",
+                "working_area": "Madrid",
+                "cust_country": "Spain",
+                "grade": "3",
+                "opening_amt": "7000.00",
+                "receive_amt": "4000.00",
+                "payment_amt": "3000.00",
+                "outstanding_amt": "1000.00",
+                "phone_no": "+341122334455",
+                "agent_code": "A103",
+                "revenue": {
+                  "A103": {
+                    "agent_code": "A103",
+                    "agent_name": "Hans Müller",
+                    "cumulative_revenue": "12700.00"
+                  }
+                }
+              }
+            }
+          },
+          "18": {
+            "ord_num": "18",
+            "ord_amount": "3200.00",
+            "advance_amount": "1400.00",
+            "ord_date": "2023-08-24",
+            "cust_code": "C103",
+            "agent_code": "A103",
+            "ord_description": "Erweiterung des CRM-Moduls",
+            "customers": {
+              "C103": {
+                "cust_code": "C103",
+                "cust_name": "Elena López",
+                "cust_city": "Madrid",
+                "working_area": "Madrid",
+                "cust_country": "Spain",
+                "grade": "3",
+                "opening_amt": "7000.00",
+                "receive_amt": "4000.00",
+                "payment_amt": "3000.00",
+                "outstanding_amt": "1000.00",
+                "phone_no": "+341122334455",
+                "agent_code": "A103",
+                "revenue": {
+                  "A103": {
+                    "agent_code": "A103",
+                    "agent_name": "Hans Müller",
+                    "cumulative_revenue": "12700.00"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "A104": {
+        "agent_code": "A104",
+        "agent_name": "Sophia Rossi",
+        "working_area": "Rome",
+        "commission": "11.25",
+        "phone_no": "3456789012",
+        "country": "Italy",
+        "orders": {
+          "4": {
+            "ord_num": "4",
+            "ord_amount": "2500.00",
+            "advance_amount": "1100.00",
+            "ord_date": "2023-09-07",
+            "cust_code": "C104",
+            "agent_code": "A104",
+            "ord_description": "Abito da sera elegante per un'occasione speciale",
+            "customers": {
+              "C104": {
+                "cust_code": "C104",
+                "cust_name": "Giovanni Russo",
+                "cust_city": "Rome",
+                "working_area": "Rome",
+                "cust_country": "Italy",
+                "grade": "4",
+                "opening_amt": "8000.00",
+                "receive_amt": "4500.00",
+                "payment_amt": "3500.00",
+                "outstanding_amt": "1500.00",
+                "phone_no": "+391122334455",
+                "agent_code": "A104",
+                "revenue": {
+                  "A104": {
+                    "agent_code": "A104",
+                    "agent_name": "Sophia Rossi",
+                    "cumulative_revenue": "6300.00"
+                  }
+                }
+              }
+            }
+          },
+          "7": {
+            "ord_num": "7",
+            "ord_amount": "1800.00",
+            "advance_amount": "800.00",
+            "ord_date": "2023-09-04",
+            "cust_code": "C107",
+            "agent_code": "A104",
+            "ord_description": "Abito elegante per una serata speciale",
+            "customers": {
+              "C107": {
+                "cust_code": "C107",
+                "cust_name": "Isabella Ferrari",
+                "cust_city": "Rome",
+                "working_area": "Rome",
+                "cust_country": "Italy",
+                "grade": "3",
+                "opening_amt": "7200.00",
+                "receive_amt": "4200.00",
+                "payment_amt": "3200.00",
+                "outstanding_amt": "1200.00",
+                "phone_no": "+391122334477",
+                "agent_code": "A104",
+                "revenue": {
+                  "A104": {
+                    "agent_code": "A104",
+                    "agent_name": "Sophia Rossi",
+                    "cumulative_revenue": "6300.00"
+                  }
+                }
+              }
+            }
+          },
+          "19": {
+            "ord_num": "19",
+            "ord_amount": "2000.00",
+            "advance_amount": "900.00",
+            "ord_date": "2023-08-23",
+            "cust_code": "C104",
+            "agent_code": "A104",
+            "ord_description": "Weitere maßgeschneiderte Abendkleider",
+            "customers": {
+              "C104": {
+                "cust_code": "C104",
+                "cust_name": "Giovanni Russo",
+                "cust_city": "Rome",
+                "working_area": "Rome",
+                "cust_country": "Italy",
+                "grade": "4",
+                "opening_amt": "8000.00",
+                "receive_amt": "4500.00",
+                "payment_amt": "3500.00",
+                "outstanding_amt": "1500.00",
+                "phone_no": "+391122334455",
+                "agent_code": "A104",
+                "revenue": {
+                  "A104": {
+                    "agent_code": "A104",
+                    "agent_name": "Sophia Rossi",
+                    "cumulative_revenue": "6300.00"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "A105": {
+        "agent_code": "A105",
+        "agent_name": "James Johnson",
+        "working_area": "London",
+        "commission": "13.00",
+        "phone_no": "6789012345",
+        "country": "UK",
+        "orders": {
+          "5": {
+            "ord_num": "5",
+            "ord_amount": "3000.00",
+            "advance_amount": "1300.00",
+            "ord_date": "2023-09-06",
+            "cust_code": "C105",
+            "agent_code": "A105",
+            "ord_description": "Smartphone haut de gamme avec les dernières fonctionnalités",
+            "customers": {
+              "C105": {
+                "cust_code": "C105",
+                "cust_name": "Emily Smith",
+                "cust_city": "London",
+                "working_area": "London",
+                "cust_country": "UK",
+                "grade": "5",
+                "opening_amt": "9000.00",
+                "receive_amt": "5000.00",
+                "payment_amt": "4000.00",
+                "outstanding_amt": "1000.00",
+                "phone_no": "+441122334455",
+                "agent_code": "A105",
+                "revenue": {
+                  "A105": {
+                    "agent_code": "A105",
+                    "agent_name": "James Johnson",
+                    "cumulative_revenue": "7700.00"
+                  }
+                }
+              }
+            }
+          },
+          "10": {
+            "ord_num": "10",
+            "ord_amount": "3200.00",
+            "advance_amount": "1500.00",
+            "ord_date": "2023-09-01",
+            "cust_code": "C110",
+            "agent_code": "A105",
+            "ord_description": "Smartphone premium avec une caméra de pointe",
+            "customers": {
+              "C110": {
+                "cust_code": "C110",
+                "cust_name": "Oliver Smith",
+                "cust_city": "London",
+                "working_area": "London",
+                "cust_country": "UK",
+                "grade": "5",
+                "opening_amt": "9200.00",
+                "receive_amt": "5200.00",
+                "payment_amt": "4200.00",
+                "outstanding_amt": "1000.00",
+                "phone_no": "+441122334411",
+                "agent_code": "A105",
+                "revenue": {
+                  "A105": {
+                    "agent_code": "A105",
+                    "agent_name": "James Johnson",
+                    "cumulative_revenue": "7700.00"
+                  }
+                }
+              }
+            }
+          },
+          "20": {
+            "ord_num": "20",
+            "ord_amount": "1500.00",
+            "advance_amount": "700.00",
+            "ord_date": "2023-08-22",
+            "cust_code": "C105",
+            "agent_code": "A105",
+            "ord_description": "Zusätzliches Zubehör für das Smartphone",
+            "customers": {
+              "C105": {
+                "cust_code": "C105",
+                "cust_name": "Emily Smith",
+                "cust_city": "London",
+                "working_area": "London",
+                "cust_country": "UK",
+                "grade": "5",
+                "opening_amt": "9000.00",
+                "receive_amt": "5000.00",
+                "payment_amt": "4000.00",
+                "outstanding_amt": "1000.00",
+                "phone_no": "+441122334455",
+                "agent_code": "A105",
+                "revenue": {
+                  "A105": {
+                    "agent_code": "A105",
+                    "agent_name": "James Johnson",
+                    "cumulative_revenue": "7700.00"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
