@@ -13,6 +13,7 @@ Dieses Repository enthält den Kerncode für die Zeus Commons Suite. Als leichtg
 ### Datenverschachtelung
 Die Anwendung unterstützt Datenverschachtelungen bis zu vier Ebenen. Dies erlaubt die Darstellung komplexer Abfragebeziehungen.
 
+
 #### Beispiel mit bis zu vier Ebenen
 ```json
 {
@@ -35,7 +36,7 @@ Die Anwendung unterstützt Datenverschachtelungen bis zu vier Ebenen. Dies erlau
     "includeMetadata": false
 }
 ```
-##License:
+## License:
 [MIT](LICENSE)
 ## Besuchen Sie:
 [tiny-tool.de](https://tiny-tool.de/).
@@ -76,7 +77,7 @@ The application supports data nesting up to four levels, allowing for complex qu
     "includeMetadata": false
 }
 ```
-##License:
+## License:
 [MIT](LICENSE)
 ## Visit
 [tiny-tool.de](https://tiny-tool.de/).
