@@ -10,6 +10,16 @@ Dieses Repository enthält den Kerncode für die Zeus Commons Suite. Als leichtg
 - Integration diverser Datenquellen
 - Modernisierung von Legacy-Systemen wie System-i (AS/400)
 
+### Endpunkte und Metadaten
+Es gibt zwei Hauptendpunkte:
+
+- GET localhost:4567/get_json gibt Daten im JSON-Format zurück.
+- GET localhost:4567/get_xml gibt Daten im XML-Format zurück.
+
+Sie können die Ausgabe von Metadaten ein- oder ausschalten, indem Sie das Feld includeMetadata im JSON-Body auf true oder false setzen.
+
+Beispieldaten finden Sie unter "examples".
+
 ### Datenverschachtelung
 Die Anwendung unterstützt Datenverschachtelungen bis zu vier Ebenen. Dies erlaubt die Darstellung komplexer Abfragebeziehungen.
 
@@ -51,6 +61,16 @@ This repository contains the core code for Zeus Commons Suite. As a lightweight 
 - API Backend Development
 - Integration of Various Data Sources
 - Modernization of Legacy Systems like System-i (AS/400)
+
+### Endpoints and Metadata
+There are two main endpoints:
+
+- GET localhost:4567/get_json returns data in JSON format.
+- GET localhost:4567/get_xml returns data in XML format.
+
+You can toggle metadata output on or off by setting the includeMetadata field in the JSON body to true or false.
+
+Sample data can be found under "examples".
 
 ### Data Nesting
 The application supports data nesting up to four levels, allowing for complex query relationships to be modelled.
