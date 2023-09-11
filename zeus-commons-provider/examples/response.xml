@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+    <contentData>
+        <agents>
+            <entity>
+                <agent_code>A101</agent_code>
+                <agent_name>John Smith</agent_name>
+                <working_area>Berlin</working_area>
+                <commission>10.50</commission>
+                <phone_no>1234567890</phone_no>
+                <country>Germany</country>
+                <orders>
+                    <entity>
+                        <ord_num>1</ord_num>
+                        <ord_amount>1000.00</ord_amount>
+                        <advance_amount>500.00</advance_amount>
+                        <ord_date>2023-09-10</ord_date>
+                        <cust_code>C101</cust_code>
+                        <agent_code>A101</agent_code>
+                        <ord_description>Luxuriöse Urlaubsbuchung für eine Traumreise</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C101</cust_code>
+                                <cust_name>Luisa Torres</cust_name>
+                                <cust_city>Berlin</cust_city>
+                                <working_area>Berlin</working_area>
+                                <cust_country>Germany</cust_country>
+                                <grade>1</grade>
+                                <opening_amt>5000.00</opening_amt>
+                                <receive_amt>3000.00</receive_amt>
+                                <payment_amt>2000.00</payment_amt>
+                                <outstanding_amt>1000.00</outstanding_amt>
+                                <phone_no>+491122334455</phone_no>
+                                <agent_code>A101</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A101</agent_code>
+                                        <agent_name>John Smith</agent_name>
+                                        <cumulative_revenue>5900.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>9</ord_num>
+                        <ord_amount>2700.00</ord_amount>
+                        <advance_amount>1300.00</advance_amount>
+                        <ord_date>2023-09-02</ord_date>
+                        <cust_code>C109</cust_code>
+                        <agent_code>A101</agent_code>
+                        <ord_description>Luxuriöses Wellness-Paket für Entspannung pur</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C109</cust_code>
+                                <cust_name>Müller Schmidt</cust_name>
+                                <cust_city>Berlin</cust_city>
+                                <working_area>Berlin</working_area>
+                                <cust_country>Germany</cust_country>
+                                <grade>1</grade>
+                                <opening_amt>5500.00</opening_amt>
+                                <receive_amt>3200.00</receive_amt>
+                                <payment_amt>2200.00</payment_amt>
+                                <outstanding_amt>1100.00</outstanding_amt>
+                                <phone_no>+491122334499</phone_no>
+                                <agent_code>A101</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A101</agent_code>
+                                        <agent_name>John Smith</agent_name>
+                                        <cumulative_revenue>5900.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>11</ord_num>
+                        <ord_amount>1400.00</ord_amount>
+                        <advance_amount>600.00</advance_amount>
+                        <ord_date>2023-08-31</ord_date>
+                        <cust_code>C101</cust_code>
+                        <agent_code>A101</agent_code>
+                        <ord_description>Weitere Buchung für den Traumurlaub</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C101</cust_code>
+                                <cust_name>Luisa Torres</cust_name>
+                                <cust_city>Berlin</cust_city>
+                                <working_area>Berlin</working_area>
+                                <cust_country>Germany</cust_country>
+                                <grade>1</grade>
+                                <opening_amt>5000.00</opening_amt>
+                                <receive_amt>3000.00</receive_amt>
+                                <payment_amt>2000.00</payment_amt>
+                                <outstanding_amt>1000.00</outstanding_amt>
+                                <phone_no>+491122334455</phone_no>
+                                <agent_code>A101</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A101</agent_code>
+                                        <agent_name>John Smith</agent_name>
+                                        <cumulative_revenue>5900.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>12</ord_num>
+                        <ord_amount>800.00</ord_amount>
+                        <advance_amount>400.00</advance_amount>
+                        <ord_date>2023-08-30</ord_date>
+                        <cust_code>C101</cust_code>
+                        <agent_code>A101</agent_code>
+                        <ord_description>Zusätzliche Reiseaktivitäten</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C101</cust_code>
+                                <cust_name>Luisa Torres</cust_name>
+                                <cust_city>Berlin</cust_city>
+                                <working_area>Berlin</working_area>
+                                <cust_country>Germany</cust_country>
+                                <grade>1</grade>
+                                <opening_amt>5000.00</opening_amt>
+                                <receive_amt>3000.00</receive_amt>
+                                <payment_amt>2000.00</payment_amt>
+                                <outstanding_amt>1000.00</outstanding_amt>
+                                <phone_no>+491122334455</phone_no>
+                                <agent_code>A101</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A101</agent_code>
+                                        <agent_name>John Smith</agent_name>
+                                        <cumulative_revenue>5900.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                </orders>
+            </entity>
+            <entity>
+                <agent_code>A102</agent_code>
+                <agent_name>Maria García</agent_name>
+                <working_area>Paris</working_area>
+                <commission>12.00</commission>
+                <phone_no>9876543210</phone_no>
+                <country>France</country>
+                <orders>
+                    <entity>
+                        <ord_num>2</ord_num>
+                        <ord_amount>1500.00</ord_amount>
+                        <advance_amount>700.00</advance_amount>
+                        <ord_date>2023-09-09</ord_date>
+                        <cust_code>C102</cust_code>
+                        <agent_code>A102</agent_code>
+                        <ord_description>Commande exclusive de bijoux artisanaux</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C102</cust_code>
+                                <cust_name>Sven Hansen</cust_name>
+                                <cust_city>Paris</cust_city>
+                                <working_area>Paris</working_area>
+                                <cust_country>France</cust_country>
+                                <grade>2</grade>
+                                <opening_amt>6000.00</opening_amt>
+                                <receive_amt>3500.00</receive_amt>
+                                <payment_amt>2500.00</payment_amt>
+                                <outstanding_amt>1500.00</outstanding_amt>
+                                <phone_no>+331122334455</phone_no>
+                                <agent_code>A102</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A102</agent_code>
+                                        <agent_name>Maria García</agent_name>
+                                        <cumulative_revenue>9400.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>6</ord_num>
+                        <ord_amount>1200.00</ord_amount>
+                        <advance_amount>600.00</advance_amount>
+                        <ord_date>2023-09-05</ord_date>
+                        <cust_code>C106</cust_code>
+                        <agent_code>A102</agent_code>
+                        <ord_description>Commande spéciale de bijoux exquis</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C106</cust_code>
+                                <cust_name>François Dubois</cust_name>
+                                <cust_city>Paris</cust_city>
+                                <working_area>Paris</working_area>
+                                <cust_country>France</cust_country>
+                                <grade>2</grade>
+                                <opening_amt>6500.00</opening_amt>
+                                <receive_amt>3800.00</receive_amt>
+                                <payment_amt>2700.00</payment_amt>
+                                <outstanding_amt>1800.00</outstanding_amt>
+                                <phone_no>+331122334466</phone_no>
+                                <agent_code>A102</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A102</agent_code>
+                                        <agent_name>Maria García</agent_name>
+                                        <cumulative_revenue>9400.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>13</ord_num>
+                        <ord_amount>1700.00</ord_amount>
+                        <advance_amount>800.00</advance_amount>
+                        <ord_date>2023-08-29</ord_date>
+                        <cust_code>C102</cust_code>
+                        <agent_code>A102</agent_code>
+                        <ord_description>Zusätzliche Schmuckstücke</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C102</cust_code>
+                                <cust_name>Sven Hansen</cust_name>
+                                <cust_city>Paris</cust_city>
+                                <working_area>Paris</working_area>
+                                <cust_country>France</cust_country>
+                                <grade>2</grade>
+                                <opening_amt>6000.00</opening_amt>
+                                <receive_amt>3500.00</receive_amt>
+                                <payment_amt>2500.00</payment_amt>
+                                <outstanding_amt>1500.00</outstanding_amt>
+                                <phone_no>+331122334455</phone_no>
+                                <agent_code>A102</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A102</agent_code>
+                                        <agent_name>Maria García</agent_name>
+                                        <cumulative_revenue>9400.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>14</ord_num>
+                        <ord_amount>2200.00</ord_amount>
+                        <advance_amount>1000.00</advance_amount>
+                        <ord_date>2023-08-28</ord_date>
+                        <cust_code>C102</cust_code>
+                        <agent_code>A102</agent_code>
+                        <ord_description>Ersatzteile für Schmuckdesign</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C102</cust_code>
+                                <cust_name>Sven Hansen</cust_name>
+                                <cust_city>Paris</cust_city>
+                                <working_area>Paris</working_area>
+                                <cust_country>France</cust_country>
+                                <grade>2</grade>
+                                <opening_amt>6000.00</opening_amt>
+                                <receive_amt>3500.00</receive_amt>
+                                <payment_amt>2500.00</payment_amt>
+                                <outstanding_amt>1500.00</outstanding_amt>
+                                <phone_no>+331122334455</phone_no>
+                                <agent_code>A102</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A102</agent_code>
+                                        <agent_name>Maria García</agent_name>
+                                        <cumulative_revenue>9400.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>15</ord_num>
+                        <ord_amount>2800.00</ord_amount>
+                        <advance_amount>1200.00</advance_amount>
+                        <ord_date>2023-08-27</ord_date>
+                        <cust_code>C102</cust_code>
+                        <agent_code>A102</agent_code>
+                        <ord_description>Weitere handgefertigte Schmuckstücke</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C102</cust_code>
+                                <cust_name>Sven Hansen</cust_name>
+                                <cust_city>Paris</cust_city>
+                                <working_area>Paris</working_area>
+                                <cust_country>France</cust_country>
+                                <grade>2</grade>
+                                <opening_amt>6000.00</opening_amt>
+                                <receive_amt>3500.00</receive_amt>
+                                <payment_amt>2500.00</payment_amt>
+                                <outstanding_amt>1500.00</outstanding_amt>
+                                <phone_no>+331122334455</phone_no>
+                                <agent_code>A102</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A102</agent_code>
+                                        <agent_name>Maria García</agent_name>
+                                        <cumulative_revenue>9400.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                </orders>
+            </entity>
+            <entity>
+                <agent_code>A103</agent_code>
+                <agent_name>Hans Müller</agent_name>
+                <working_area>Madrid</working_area>
+                <commission>9.75</commission>
+                <phone_no>5678901234</phone_no>
+                <country>Spain</country>
+                <orders>
+                    <entity>
+                        <ord_num>3</ord_num>
+                        <ord_amount>2000.00</ord_amount>
+                        <advance_amount>900.00</advance_amount>
+                        <ord_date>2023-09-08</ord_date>
+                        <cust_code>C103</cust_code>
+                        <agent_code>A103</agent_code>
+                        <ord_description>Desarrollo de software personalizado para tu negocio</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C103</cust_code>
+                                <cust_name>Elena López</cust_name>
+                                <cust_city>Madrid</cust_city>
+                                <working_area>Madrid</working_area>
+                                <cust_country>Spain</cust_country>
+                                <grade>3</grade>
+                                <opening_amt>7000.00</opening_amt>
+                                <receive_amt>4000.00</receive_amt>
+                                <payment_amt>3000.00</payment_amt>
+                                <outstanding_amt>1000.00</outstanding_amt>
+                                <phone_no>+341122334455</phone_no>
+                                <agent_code>A103</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A103</agent_code>
+                                        <agent_name>Hans Müller</agent_name>
+                                        <cumulative_revenue>12700.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>8</ord_num>
+                        <ord_amount>2200.00</ord_amount>
+                        <advance_amount>1000.00</advance_amount>
+                        <ord_date>2023-09-03</ord_date>
+                        <cust_code>C108</cust_code>
+                        <agent_code>A103</agent_code>
+                        <ord_description>Desarrollo de software de vanguardia para empresas</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C108</cust_code>
+                                <cust_name>Elena López</cust_name>
+                                <cust_city>Barcelona</cust_city>
+                                <working_area>Barcelona</working_area>
+                                <cust_country>Spain</cust_country>
+                                <grade>4</grade>
+                                <opening_amt>8100.00</opening_amt>
+                                <receive_amt>4600.00</receive_amt>
+                                <payment_amt>3600.00</payment_amt>
+                                <outstanding_amt>1500.00</outstanding_amt>
+                                <phone_no>+341122334488</phone_no>
+                                <agent_code>A103</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A103</agent_code>
+                                        <agent_name>Hans Müller</agent_name>
+                                        <cumulative_revenue>12700.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>16</ord_num>
+                        <ord_amount>2500.00</ord_amount>
+                        <advance_amount>1000.00</advance_amount>
+                        <ord_date>2023-08-26</ord_date>
+                        <cust_code>C103</cust_code>
+                        <agent_code>A103</agent_code>
+                        <ord_description>Zusätzliche Lizenzgebühren für Software</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C103</cust_code>
+                                <cust_name>Elena López</cust_name>
+                                <cust_city>Madrid</cust_city>
+                                <working_area>Madrid</working_area>
+                                <cust_country>Spain</cust_country>
+                                <grade>3</grade>
+                                <opening_amt>7000.00</opening_amt>
+                                <receive_amt>4000.00</receive_amt>
+                                <payment_amt>3000.00</payment_amt>
+                                <outstanding_amt>1000.00</outstanding_amt>
+                                <phone_no>+341122334455</phone_no>
+                                <agent_code>A103</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A103</agent_code>
+                                        <agent_name>Hans Müller</agent_name>
+                                        <cumulative_revenue>12700.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>17</ord_num>
+                        <ord_amount>2800.00</ord_amount>
+                        <advance_amount>1200.00</advance_amount>
+                        <ord_date>2023-08-25</ord_date>
+                        <cust_code>C103</cust_code>
+                        <agent_code>A103</agent_code>
+                        <ord_description>Software-Update und Wartung</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C103</cust_code>
+                                <cust_name>Elena López</cust_name>
+                                <cust_city>Madrid</cust_city>
+                                <working_area>Madrid</working_area>
+                                <cust_country>Spain</cust_country>
+                                <grade>3</grade>
+                                <opening_amt>7000.00</opening_amt>
+                                <receive_amt>4000.00</receive_amt>
+                                <payment_amt>3000.00</payment_amt>
+                                <outstanding_amt>1000.00</outstanding_amt>
+                                <phone_no>+341122334455</phone_no>
+                                <agent_code>A103</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A103</agent_code>
+                                        <agent_name>Hans Müller</agent_name>
+                                        <cumulative_revenue>12700.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>18</ord_num>
+                        <ord_amount>3200.00</ord_amount>
+                        <advance_amount>1400.00</advance_amount>
+                        <ord_date>2023-08-24</ord_date>
+                        <cust_code>C103</cust_code>
+                        <agent_code>A103</agent_code>
+                        <ord_description>Erweiterung des CRM-Moduls</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C103</cust_code>
+                                <cust_name>Elena López</cust_name>
+                                <cust_city>Madrid</cust_city>
+                                <working_area>Madrid</working_area>
+                                <cust_country>Spain</cust_country>
+                                <grade>3</grade>
+                                <opening_amt>7000.00</opening_amt>
+                                <receive_amt>4000.00</receive_amt>
+                                <payment_amt>3000.00</payment_amt>
+                                <outstanding_amt>1000.00</outstanding_amt>
+                                <phone_no>+341122334455</phone_no>
+                                <agent_code>A103</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A103</agent_code>
+                                        <agent_name>Hans Müller</agent_name>
+                                        <cumulative_revenue>12700.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                </orders>
+            </entity>
+            <entity>
+                <agent_code>A104</agent_code>
+                <agent_name>Sophia Rossi</agent_name>
+                <working_area>Rome</working_area>
+                <commission>11.25</commission>
+                <phone_no>3456789012</phone_no>
+                <country>Italy</country>
+                <orders>
+                    <entity>
+                        <ord_num>4</ord_num>
+                        <ord_amount>2500.00</ord_amount>
+                        <advance_amount>1100.00</advance_amount>
+                        <ord_date>2023-09-07</ord_date>
+                        <cust_code>C104</cust_code>
+                        <agent_code>A104</agent_code>
+                        <ord_description>Abito da sera elegante per un'occasione speciale</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C104</cust_code>
+                                <cust_name>Giovanni Russo</cust_name>
+                                <cust_city>Rome</cust_city>
+                                <working_area>Rome</working_area>
+                                <cust_country>Italy</cust_country>
+                                <grade>4</grade>
+                                <opening_amt>8000.00</opening_amt>
+                                <receive_amt>4500.00</receive_amt>
+                                <payment_amt>3500.00</payment_amt>
+                                <outstanding_amt>1500.00</outstanding_amt>
+                                <phone_no>+391122334455</phone_no>
+                                <agent_code>A104</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A104</agent_code>
+                                        <agent_name>Sophia Rossi</agent_name>
+                                        <cumulative_revenue>6300.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>7</ord_num>
+                        <ord_amount>1800.00</ord_amount>
+                        <advance_amount>800.00</advance_amount>
+                        <ord_date>2023-09-04</ord_date>
+                        <cust_code>C107</cust_code>
+                        <agent_code>A104</agent_code>
+                        <ord_description>Abito elegante per una serata speciale</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C107</cust_code>
+                                <cust_name>Isabella Ferrari</cust_name>
+                                <cust_city>Rome</cust_city>
+                                <working_area>Rome</working_area>
+                                <cust_country>Italy</cust_country>
+                                <grade>3</grade>
+                                <opening_amt>7200.00</opening_amt>
+                                <receive_amt>4200.00</receive_amt>
+                                <payment_amt>3200.00</payment_amt>
+                                <outstanding_amt>1200.00</outstanding_amt>
+                                <phone_no>+391122334477</phone_no>
+                                <agent_code>A104</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A104</agent_code>
+                                        <agent_name>Sophia Rossi</agent_name>
+                                        <cumulative_revenue>6300.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>19</ord_num>
+                        <ord_amount>2000.00</ord_amount>
+                        <advance_amount>900.00</advance_amount>
+                        <ord_date>2023-08-23</ord_date>
+                        <cust_code>C104</cust_code>
+                        <agent_code>A104</agent_code>
+                        <ord_description>Weitere maßgeschneiderte Abendkleider</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C104</cust_code>
+                                <cust_name>Giovanni Russo</cust_name>
+                                <cust_city>Rome</cust_city>
+                                <working_area>Rome</working_area>
+                                <cust_country>Italy</cust_country>
+                                <grade>4</grade>
+                                <opening_amt>8000.00</opening_amt>
+                                <receive_amt>4500.00</receive_amt>
+                                <payment_amt>3500.00</payment_amt>
+                                <outstanding_amt>1500.00</outstanding_amt>
+                                <phone_no>+391122334455</phone_no>
+                                <agent_code>A104</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A104</agent_code>
+                                        <agent_name>Sophia Rossi</agent_name>
+                                        <cumulative_revenue>6300.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                </orders>
+            </entity>
+            <entity>
+                <agent_code>A105</agent_code>
+                <agent_name>James Johnson</agent_name>
+                <working_area>London</working_area>
+                <commission>13.00</commission>
+                <phone_no>6789012345</phone_no>
+                <country>UK</country>
+                <orders>
+                    <entity>
+                        <ord_num>5</ord_num>
+                        <ord_amount>3000.00</ord_amount>
+                        <advance_amount>1300.00</advance_amount>
+                        <ord_date>2023-09-06</ord_date>
+                        <cust_code>C105</cust_code>
+                        <agent_code>A105</agent_code>
+                        <ord_description>Smartphone haut de gamme avec les dernières fonctionnalités</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C105</cust_code>
+                                <cust_name>Emily Smith</cust_name>
+                                <cust_city>London</cust_city>
+                                <working_area>London</working_area>
+                                <cust_country>UK</cust_country>
+                                <grade>5</grade>
+                                <opening_amt>9000.00</opening_amt>
+                                <receive_amt>5000.00</receive_amt>
+                                <payment_amt>4000.00</payment_amt>
+                                <outstanding_amt>1000.00</outstanding_amt>
+                                <phone_no>+441122334455</phone_no>
+                                <agent_code>A105</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A105</agent_code>
+                                        <agent_name>James Johnson</agent_name>
+                                        <cumulative_revenue>7700.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>10</ord_num>
+                        <ord_amount>3200.00</ord_amount>
+                        <advance_amount>1500.00</advance_amount>
+                        <ord_date>2023-09-01</ord_date>
+                        <cust_code>C110</cust_code>
+                        <agent_code>A105</agent_code>
+                        <ord_description>Smartphone premium avec une caméra de pointe</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C110</cust_code>
+                                <cust_name>Oliver Smith</cust_name>
+                                <cust_city>London</cust_city>
+                                <working_area>London</working_area>
+                                <cust_country>UK</cust_country>
+                                <grade>5</grade>
+                                <opening_amt>9200.00</opening_amt>
+                                <receive_amt>5200.00</receive_amt>
+                                <payment_amt>4200.00</payment_amt>
+                                <outstanding_amt>1000.00</outstanding_amt>
+                                <phone_no>+441122334411</phone_no>
+                                <agent_code>A105</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A105</agent_code>
+                                        <agent_name>James Johnson</agent_name>
+                                        <cumulative_revenue>7700.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                    <entity>
+                        <ord_num>20</ord_num>
+                        <ord_amount>1500.00</ord_amount>
+                        <advance_amount>700.00</advance_amount>
+                        <ord_date>2023-08-22</ord_date>
+                        <cust_code>C105</cust_code>
+                        <agent_code>A105</agent_code>
+                        <ord_description>Zusätzliches Zubehör für das Smartphone</ord_description>
+                        <customers>
+                            <entity>
+                                <cust_code>C105</cust_code>
+                                <cust_name>Emily Smith</cust_name>
+                                <cust_city>London</cust_city>
+                                <working_area>London</working_area>
+                                <cust_country>UK</cust_country>
+                                <grade>5</grade>
+                                <opening_amt>9000.00</opening_amt>
+                                <receive_amt>5000.00</receive_amt>
+                                <payment_amt>4000.00</payment_amt>
+                                <outstanding_amt>1000.00</outstanding_amt>
+                                <phone_no>+441122334455</phone_no>
+                                <agent_code>A105</agent_code>
+                                <revenue>
+                                    <entity>
+                                        <agent_code>A105</agent_code>
+                                        <agent_name>James Johnson</agent_name>
+                                        <cumulative_revenue>7700.00</cumulative_revenue>
+                                    </entity>
+                                </revenue>
+                            </entity>
+                        </customers>
+                    </entity>
+                </orders>
+            </entity>
+        </agents>
+    </contentData>
+</result>
