@@ -47,7 +47,7 @@ Die Anwendung unterstützt Datenverschachtelungen bis zu vier Ebenen. Dies erlau
 }
 ```
 ## License:
-[MIT](LICENSE)
+[Apache 2.0](LICENSE)
 ## Besuchen Sie:
 [tiny-tool.de](https://tiny-tool.de/).
 # Zeus-Commons-APIs
@@ -98,6 +98,6 @@ The application supports data nesting up to four levels, allowing for complex qu
 }
 ```
 ## License:
-[MIT](LICENSE)
+[Apache 2.0](LICENSE)
 ## Visit
 [tiny-tool.de](https://tiny-tool.de/).
