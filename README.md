@@ -1,7 +1,7 @@
 # Zeus Commons Suite
 
 ## Überblick (Deutsch)
-Dieses Repository enthält den Kerncode für die Zeus Commons Suite. Als leichtgewichtige Alternative zu Spring Boot wurde hier Spark Java verwendet. Die Suite dient als Grundlage für verschiedene Backend-Services.
+Zeus-Commons-APIs ist Dein Schweizer Taschenmesser für Backend-Services. Erstellen Sie mächtige, verschachtelte SQL-Abfragen einfach über REST oder die Konsole. Läuft leichtgewichtig auf Spark Java und gibt Daten im JSON- oder XML-Format bis zu vier Verschachtelungsebenen zurück. Perfekt für alle, die Flexibilität ohne den Overhead wollen.
 
 **Wichtiger Hinweis**: Für den Produktiveinsatz sind weitere Maßnahmen gegen SQL-Injection notwendig.
 
@@ -53,7 +53,7 @@ Die Anwendung unterstützt Datenverschachtelungen bis zu vier Ebenen. Dies erlau
 # Zeus Commons Suite
 
 ## Overview (English)
-This repository contains the core code for Zeus Commons Suite. As a lightweight alternative to Spring Boot, Spark Java has been employed here. The suite serves as a foundation for various backend services.
+Zeus-Commons-APIs is your Swiss Army knife for backend services. Easily create powerful, nested SQL queries via REST or console input. Running lean on Spark Java, it returns data in JSON or XML formats with up to four levels of nesting. Perfect for those who want flexibility without the overhead.
 
 **Important Note**: Further measures against SQL Injection are required for production use.
 
