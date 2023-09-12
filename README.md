@@ -1,4 +1,4 @@
-# Zeus Commons Suite
+# Zeus-Commons-APIs
 
 ## Überblick (Deutsch)
 Zeus-Commons-APIs ist Dein Schweizer Taschenmesser für Backend-Services. Erstellen Sie mächtige, verschachtelte SQL-Abfragen einfach über REST oder die Konsole. Läuft leichtgewichtig auf Spark Java und gibt Daten im JSON- oder XML-Format bis zu vier Verschachtelungsebenen zurück. Perfekt für alle, die Flexibilität ohne den Overhead wollen.
@@ -18,7 +18,7 @@ Es gibt zwei Hauptendpunkte:
 
 Sie können die Ausgabe von Metadaten ein- oder ausschalten, indem Sie das Feld includeMetadata im JSON-Body auf true oder false setzen.
 
-Beispieldaten finden Sie unter "examples".
+Beispieldaten finden Sie unter [examples](https://github.com/gzeuner/Zeus-Commons-APIs/tree/main/examples).
 
 ### Datenverschachtelung
 Die Anwendung unterstützt Datenverschachtelungen bis zu vier Ebenen. Dies erlaubt die Darstellung komplexer Abfragebeziehungen.
@@ -50,7 +50,7 @@ Die Anwendung unterstützt Datenverschachtelungen bis zu vier Ebenen. Dies erlau
 [MIT](LICENSE)
 ## Besuchen Sie:
 [tiny-tool.de](https://tiny-tool.de/).
-# Zeus Commons Suite
+# Zeus-Commons-APIs
 
 ## Overview (English)
 Zeus-Commons-APIs is your Swiss Army knife for backend services. Easily create powerful, nested SQL queries via REST or console input. Running lean on Spark Java, it returns data in JSON or XML formats with up to four levels of nesting. Perfect for those who want flexibility without the overhead.
@@ -70,7 +70,7 @@ There are two main endpoints:
 
 You can toggle metadata output on or off by setting the includeMetadata field in the JSON body to true or false.
 
-Sample data can be found under "examples".
+Sample data can be found under [examples](https://github.com/gzeuner/Zeus-Commons-APIs/tree/main/examples).
 
 ### Data Nesting
 The application supports data nesting up to four levels, allowing for complex query relationships to be modelled.
