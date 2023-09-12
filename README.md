@@ -1,7 +1,7 @@
 # Zeus-Commons-APIs
 
 ## Überblick (Deutsch)
-Zeus-Commons-APIs ist Dein Schweizer Taschenmesser für Backend-Services. Erstellen Sie mächtige, verschachtelte SQL-Abfragen einfach über REST oder die Konsole. Läuft leichtgewichtig auf Spark Java und gibt Daten im JSON- oder XML-Format bis zu vier Verschachtelungsebenen zurück. Perfekt für alle, die Flexibilität ohne den Overhead wollen.
+Zeus-Commons-APIs ist Ihr Schweizer Taschenmesser für Backend-Services. Erstellen Sie mächtige, verschachtelte SQL-Abfragen einfach über REST oder die Konsole. Läuft leichtgewichtig auf Spark Java und gibt Daten im JSON- oder XML-Format bis zu vier Verschachtelungsebenen zurück. Perfekt für alle, die Flexibilität ohne den Overhead wollen.
 
 **Wichtiger Hinweis**: Für den Produktiveinsatz sind weitere Maßnahmen gegen SQL-Injection notwendig.
 
