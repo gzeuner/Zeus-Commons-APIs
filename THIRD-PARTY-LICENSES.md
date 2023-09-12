@@ -1,6 +1,6 @@
 # Third-Party Licenses
 
-Dieses Projekt verwendet die folgenden Third-Party-Bibliotheken:
+Dieses Projekt verwendet die folgenden Third-Party-Bibliotheken/This project uses the following third-party libraries:
 
 ## Log4j Core & Log4j API
 
@@ -49,5 +49,3 @@ https://h2database.com/html/license.html
 
 - License: Apache 2.0
 - Source: [JSqlParser](https://github.com/JSQLParser/JSqlParser)
-
-Bitte überprüfe die jeweiligen Lizenzen der Bibliotheken, um sicherzustellen, dass sie kompatibel mit der Lizenz dieses Projekts sind.
