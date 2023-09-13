@@ -2,6 +2,7 @@ package de.zeus.commons.provider.service;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import de.zeus.commons.connector.jdbc.config.JdbcConfig;
 import de.zeus.commons.provider.config.IProviderConstants;
 import de.zeus.commons.provider.logic.sql.ConnectionControllerFactory;
 
@@ -14,6 +15,7 @@ public class HttpServer implements IProviderConstants {
 
 	private final ConnectionControllerFactory controllerFactory;
 	private final Gson gson;
+	private final JdbcConfig config = JdbcConfig.getInstance();
 
 	/**
 	 * Initializes a new instance of the HttpServer class with the provided controller factory.
@@ -23,7 +25,13 @@ public class HttpServer implements IProviderConstants {
 	public HttpServer(ConnectionControllerFactory controllerFactory) {
 		this.controllerFactory = controllerFactory;
 		this.gson = new Gson();
+		initSpark();
 		registerRoutes();
+	}
+
+	private void initSpark() {
+		spark.Spark.ipAddress(config.getSparkJavaAllowedHosts());
+		spark.Spark.port(config.getSparkJavaPort());
 	}
 
 	/**
