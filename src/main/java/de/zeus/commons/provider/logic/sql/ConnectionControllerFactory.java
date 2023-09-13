@@ -22,13 +22,11 @@ public class ConnectionControllerFactory {
     /**
      * Constructor for ConnectionControllerFactory.
      * Initializes the JDBC operations and creates a new connection controller.
-     *
-     * @param appConfig Configuration parameters for the application.
-     * @param logConfig Configuration parameters for logging.
+     *.
      */
-    public ConnectionControllerFactory(String appConfig, String logConfig) {
-        // Initializes JdbcOperations with given appConfig and logConfig
-        this.jdbcOperations = new JdbcOperations(appConfig, logConfig);
+    public ConnectionControllerFactory() {
+        // Initializes JdbcOperations
+        this.jdbcOperations = new JdbcOperations();
 
         // Creates and initializes a new connection controller
         this.connectionController = createNewController();
@@ -41,12 +39,7 @@ public class ConnectionControllerFactory {
      */
     private IConnectionController createNewController() {
         // Create a new JdbcConnectionController with jdbcOperations
-        JdbcConnectionController newController = new JdbcConnectionController(jdbcOperations);
-
-        // Initialize the newly created controller
-        newController.init();
-
-        return newController;
+        return new JdbcConnectionController(jdbcOperations);
     }
 
     /**

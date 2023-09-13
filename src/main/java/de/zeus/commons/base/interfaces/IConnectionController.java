@@ -26,11 +26,6 @@ public interface IConnectionController {
 	void disconnectDataService();
 
 	/**
-	 * Initializes the connection controller.
-	 */
-	void init();
-
-	/**
 	 * Processes a JSON request in the specified mode.
 	 *
 	 * @param jsonRequest The JSON request to process.

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Extra logging related to initialization of Log4j.
  Set to debug or trace if log4j initialization is failing. -->
-<Configuration status="warn">
+<Configuration status="info">
 
     <Properties>
-        <Property name="basePath">./logs</Property>
+        <Property name="basePath">logs</Property>
     </Properties>
 
     <Appenders>
@@ -27,7 +27,7 @@
             </Policies>
             <!-- Max 10 files will be created everyday -->
             <DefaultRolloverStrategy max="10">
-                <Delete basePath="${basePathr}" maxDepth="10">
+                <Delete basePath="${basePath}" maxDepth="10">
                     <!-- Delete all files older than 30 days -->
                     <IfLastModified age="30d" />
                 </Delete>

@@ -41,11 +41,6 @@ public class JdbcConnectionController implements IConnectionController, IProvide
 		this.jdbcOperations = jdbcOperations;
 	}
 
-	/** Initialize the configuration. */
-	@Override
-	public void init() {
-		this.jdbcOperations.initConfig();
-	}
 
 	@Override
 	public Object process(JsonObject jsonRequest, String mode) {

@@ -52,8 +52,4 @@ public interface IJdbcOperations {
 	 */
 	void close(ResultSet rSet, Statement stmt) throws SQLException;
 
-	/**
-	 * Initializes the database configuration.
-	 */
-	void initConfig();
 }

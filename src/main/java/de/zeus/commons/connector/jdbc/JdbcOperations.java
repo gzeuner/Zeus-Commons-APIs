@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.commons.logging.Log;
@@ -32,14 +31,8 @@ public class JdbcOperations implements IJdbcOperations {
 	/**
 	 * Constructs a JdbcOperations instance.
 	 *
-	 * @param appConfig The application configuration file path.
-	 * @param logConfig The log4j configuration file path.
 	 */
-	public JdbcOperations(String appConfig, String logConfig) {
-		super();
-		setAppConfig(appConfig);
-		setLogConfig(logConfig);
-		initConfig();
+	public JdbcOperations() {
 		initDataSource();
 	}
 
@@ -163,13 +156,6 @@ public class JdbcOperations implements IJdbcOperations {
 		this.logConfig = logConfig;
 	}
 
-	@Override
-	public void initConfig() {
-		JdbcConfig config = JdbcConfig.getInstance();
-		config.setPropertiesFile(appConfig);
-		config.setLog4jConfPath(logConfig);
-		config.init();
-	}
 
 	// Initialize dataSource
 	public void initDataSource() {
