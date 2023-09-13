@@ -3,13 +3,10 @@ package de.zeus.commons.provider;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import de.zeus.commons.base.interfaces.IConnectionController;
-import de.zeus.commons.connector.jdbc.config.ConfigBase;
 import de.zeus.commons.connector.jdbc.config.JdbcConfig;
 import de.zeus.commons.connector.jdbc.config.SparkConfig;
 import de.zeus.commons.provider.logic.sql.ConnectionControllerFactory;
 import de.zeus.commons.provider.service.HttpServer;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 /**
  * The Provider class serves as the entry point for running the application as a REST service or from the console.
