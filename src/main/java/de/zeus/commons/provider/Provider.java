@@ -38,9 +38,8 @@ public class Provider {
                 config.setSparkConfig(args[2]);
             } else if (runMode.equals("CONSOLE")) {
                 config.setJdbcConfig(args[1]);
-                config.setSparkConfig(args[2]);
-                config.setJsonRequest(new Gson().fromJson(args[3], JsonObject.class));
-                config.setMode(args[4]);
+                config.setJsonRequest(new Gson().fromJson(args[2], JsonObject.class));
+                config.setMode(args[3]);
             } else {
                 displayUsage();
                 System.exit(0);
@@ -96,13 +95,16 @@ public class Provider {
 
     private static void initConfig(ProviderConfig config) {
 
-        JdbcConfig jdbcConfig = JdbcConfig.getInstance();
-        jdbcConfig.setPropertiesFile(config.getJdbcConfig());
-        ;
-        jdbcConfig.loadProperties();
+        if(config.getJdbcConfig() != null) {
+            JdbcConfig jdbcConfig = JdbcConfig.getInstance();
+            jdbcConfig.setPropertiesFile(config.getJdbcConfig());
+            jdbcConfig.loadProperties();
+        }
 
-        SparkConfig sparkConfig = SparkConfig.getInstance();
-        sparkConfig.setPropertiesFile(config.getSparkConfig());
-        sparkConfig.loadProperties();
+        if(config.getSparkConfig() != null) {
+            SparkConfig sparkConfig = SparkConfig.getInstance();
+            sparkConfig.setPropertiesFile(config.getSparkConfig());
+            sparkConfig.loadProperties();
+        }
     }
 }
