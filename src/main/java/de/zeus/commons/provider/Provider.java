@@ -5,14 +5,22 @@ import com.google.gson.JsonObject;
 import de.zeus.commons.base.interfaces.IConnectionController;
 import de.zeus.commons.connector.jdbc.config.JdbcConfig;
 import de.zeus.commons.connector.jdbc.config.SparkConfig;
+import de.zeus.commons.file.FileWriterUtil;
 import de.zeus.commons.provider.logic.sql.ConnectionControllerFactory;
 import de.zeus.commons.provider.service.HttpServer;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.jdom2.JDOMException;
+
+import java.io.IOException;
 
 /**
  * The Provider class serves as the entry point for running the application as a REST service or from the console.
  * It handles command-line arguments, initializes the necessary components, and starts the service.
  */
 public class Provider {
+
+    private static final Log LOG = LogFactory.getLog(Provider.class) ;
 
     public static void main(String[] args) {
 
@@ -90,7 +98,12 @@ public class Provider {
      */
     public static void initServiceFromConsole(ConnectionControllerFactory controllerFactory, JsonObject jsonRequest, String mode) {
         IConnectionController connectionController = controllerFactory.getController();
-        System.out.println(connectionController.process(jsonRequest, mode));
+        FileWriterUtil fileWriterUtil = new FileWriterUtil();
+        try {
+            fileWriterUtil.writeStringToFile(String.valueOf(connectionController.process(jsonRequest, mode)), mode);
+        } catch (IOException | JDOMException e) {
+            LOG.error("IO-File-Error. ", e);
+        }
     }
 
     private static void initConfig(ProviderConfig config) {
