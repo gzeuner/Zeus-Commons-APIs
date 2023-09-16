@@ -4,8 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import de.zeus.commons.connector.jdbc.config.ConfigBase;
 import de.zeus.commons.connector.jdbc.config.SparkConfig;
-import de.zeus.commons.provider.ProviderConfig;
-import de.zeus.commons.provider.config.IProviderConstants;
+import de.zeus.commons.provider.constants.IProviderConstants;
 import de.zeus.commons.provider.logic.sql.ConnectionControllerFactory;
 
 /**

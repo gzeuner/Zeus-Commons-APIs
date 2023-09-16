@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import de.zeus.commons.base.interfaces.IConnectionController;
 import de.zeus.commons.base.interfaces.IJdbcOperations;
 import de.zeus.commons.provider.service.JsonRequestProcessor;
-import de.zeus.commons.provider.config.IProviderConstants;
+import de.zeus.commons.provider.constants.IProviderConstants;
 import de.zeus.commons.provider.convert.DataToJSON;
 import de.zeus.commons.provider.convert.DataToXML;
 import de.zeus.commons.provider.model.*;

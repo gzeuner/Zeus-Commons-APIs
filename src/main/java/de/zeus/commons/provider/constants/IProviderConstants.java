@@ -1,4 +1,4 @@
-package de.zeus.commons.provider.config;
+package de.zeus.commons.provider.constants;
 
 /**
  * This interface defines constants used in the provider configuration and data processing.

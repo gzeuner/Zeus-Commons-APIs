@@ -10,9 +10,6 @@ import de.zeus.commons.provider.logic.sql.ConnectionControllerFactory;
 import de.zeus.commons.provider.service.HttpServer;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.jdom2.JDOMException;
-
-import java.io.IOException;
 
 /**
  * The Provider class serves as the entry point for running the application as a REST service or from the console.
@@ -100,21 +97,23 @@ public class Provider {
         IConnectionController connectionController = controllerFactory.getController();
         FileWriterUtil fileWriterUtil = new FileWriterUtil();
         try {
-            fileWriterUtil.writeStringToFile(String.valueOf(connectionController.process(jsonRequest, mode)), mode);
-        } catch (IOException | JDOMException e) {
-            LOG.error("IO-File-Error. ", e);
+            fileWriterUtil.writeContentToFile(String.valueOf(connectionController.process(jsonRequest, mode)), mode);
+        } catch (Exception e) {
+            LOG.error("IO-File or Format Error. ", e);
         }
     }
 
     private static void initConfig(ProviderConfig config) {
 
         if(config.getJdbcConfig() != null) {
+            LOG.debug("Loading JdbcConfig");
             JdbcConfig jdbcConfig = JdbcConfig.getInstance();
             jdbcConfig.setPropertiesFile(config.getJdbcConfig());
             jdbcConfig.loadProperties();
         }
 
         if(config.getSparkConfig() != null) {
+            LOG.debug("Loading SparkConfig");
             SparkConfig sparkConfig = SparkConfig.getInstance();
             sparkConfig.setPropertiesFile(config.getSparkConfig());
             sparkConfig.loadProperties();

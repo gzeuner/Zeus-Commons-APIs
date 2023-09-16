@@ -1,7 +1,7 @@
 package de.zeus.commons.provider.convert;
 
 import com.google.gson.JsonObject;
-import de.zeus.commons.provider.config.IProviderConstants;
+import de.zeus.commons.provider.constants.IProviderConstants;
 import de.zeus.commons.provider.model.ContentFieldData;
 import de.zeus.commons.provider.model.ContentRecordData;
 import de.zeus.commons.provider.model.DataWrapper;

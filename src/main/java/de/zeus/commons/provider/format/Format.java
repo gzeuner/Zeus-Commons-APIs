@@ -1,5 +1,22 @@
 package de.zeus.commons.provider.format;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonParser;
+import org.jdom2.Document;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.XMLOutputter;
+
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import static de.zeus.commons.provider.constants.IProviderConstants.MODE_JSON;
+import static de.zeus.commons.provider.constants.IProviderConstants.MODE_XML;
+import static org.jdom2.output.Format.getPrettyFormat;
+
 public class Format {
 
 	/**
@@ -28,4 +45,30 @@ public class Format {
 		}
 		return value;
 	}
+
+	public String generateFileName(String fileType) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd-HHmmss");
+		return dateFormat.format(new Date()) + "-result."
+				+ fileType.replace("application/", "");
+	}
+
+	public String formatContent(String content, String fileType) throws Exception {
+		switch (fileType.toLowerCase()) {
+			case MODE_JSON:
+				JsonElement jsonElement = JsonParser.parseString(content);
+				Gson gson = new GsonBuilder().setPrettyPrinting().create();
+				return gson.toJson(jsonElement);
+			case MODE_XML:
+				SAXBuilder saxBuilder = new SAXBuilder();
+				Document doc = saxBuilder.build(new StringReader(content));
+				XMLOutputter xmlOutputter = new XMLOutputter();
+				xmlOutputter.setFormat(getPrettyFormat());
+				StringWriter stringWriter = new StringWriter();
+				xmlOutputter.output(doc, stringWriter);
+				return stringWriter.toString();
+			default:
+				return null;
+		}
+	}
+
 }

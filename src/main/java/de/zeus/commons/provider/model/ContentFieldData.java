@@ -9,8 +9,7 @@ public class ContentFieldData {
 
 	private int columnNumber; // The column number in the result set
 	private String value; // The value of the field
-
-	private Format format = new Format(); // Format utility for data values
+	private final Format format = new Format(); // Format utility for data values
 
 	/**
 	 * Gets the column number of this field in the result set.
