@@ -1,0 +1,21 @@
+curl -X POST "http://localhost:4567/get_json" \
+    -H "Content-Type: application/json" \
+    -d '{
+    "query": {
+        "name": "agents",
+        "statement": "select * from agents",
+        "subquery": {
+            "name": "orders",
+            "statement": "select * from orders where agent_code = '\''[$agent_code]'\''",
+            "subquery": {
+                "name": "customers",
+                "statement": "select * from customers where cust_code = '\''[$cust_code]'\''",
+                "subquery": {
+                    "name": "revenue",
+                    "statement": "select * from agent_revenue where agent_code = '\''[$agent_code]'\'"
+                }
+            }
+        }
+    },
+    "includeMetadata": true
+}'

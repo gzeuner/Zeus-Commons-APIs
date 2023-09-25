@@ -1,0 +1,36 @@
+{
+	"info": {
+		"_postman_id": "d47f4815-cdb4-45c4-8395-ef03aa5c1837",
+		"name": "LocalProviderService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:4567/process",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"query\": {\r\n\t\t\"name\": \"agents\",\r\n\t\t\"statement\": \"select * from agents\",\r\n\t\t\"subquery\": {\r\n\t\t\t\"name\": \"orders\",\r\n\t\t\t\"statement\": \"select * from orders where agent_code = '[$agent_code]'\",\r\n            \"subquery\": {\r\n\t\t\t    \"name\": \"customers\",\r\n\t\t\t    \"statement\": \"select * from customers where cust_code = '[$cust_code]'\",\r\n                \"subquery\": {\r\n\t\t\t        \"name\": \"revenue\",\r\n\t\t\t        \"statement\": \"select * from agent_revenue where agent_code = '[$agent_code]'\"\r\n\t\t        }\r\n\t\t    }\r\n\t\t}\r\n\t},\r\n\t\"includeMetadata\": true\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:4567/get_json",
+					"host": [
+						"localhost"
+					],
+					"port": "4567",
+					"path": [
+						"get_json"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
