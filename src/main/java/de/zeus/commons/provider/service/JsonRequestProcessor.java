@@ -3,6 +3,7 @@ package de.zeus.commons.provider.service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import de.zeus.commons.base.interfaces.IConnectionController;
+import de.zeus.commons.connector.jdbc.DatabaseConnectionException;
 import de.zeus.commons.provider.model.ContentFieldData;
 import de.zeus.commons.provider.model.ContentRecordData;
 import de.zeus.commons.provider.model.DataWrapper;
@@ -86,10 +87,17 @@ public class JsonRequestProcessor {
     }
     /**
      * Process Level One data.
+     *
+     * <p>This method utilizes {@code addLevelOneData} to add a new Level One data wrapper.
+     * If adding is successful, {@code currentLevelOneWrapper} is updated.</p>
+     *
+     * @param entry a key-value pair where the key is the element name and the value is the SQL statement for data retrieval.
      */
     private void processLevelOne(Map.Entry<String, String> entry) {
-        currentLevelOneWrapper = addLevelOneData(entry.getKey(),
-                entry.getValue());
+        Optional<DataWrapper> rootLevelDataWrapperOpt = addLevelOneData(entry.getKey(), entry.getValue());
+        // Handle the case when no data could be added, if necessary
+        // or some default value
+        currentLevelOneWrapper = rootLevelDataWrapperOpt.orElse(null);
     }
 
     /**
@@ -160,13 +168,46 @@ public class JsonRequestProcessor {
         }
     }
 
-
-    private DataWrapper addLevelOneData(String elementName, String statement) {
-        DataWrapper rootLevelDataWrapper = readData(statement);
-        rootLevelDataWrapper.setName(elementName);
-        levelOneWrapper.add(rootLevelDataWrapper);
-        return rootLevelDataWrapper;
+    /**
+     * Attempts to read data safely using the provided SQL statement.
+     *
+     * <p>This method wraps the {@code readData} method and handles {@code DatabaseConnectionException}
+     * internally by logging an error message. It returns an empty {@code Optional} if the data reading fails.</p>
+     *
+     * @param statement the SQL statement to be executed for data retrieval.
+     * @return an {@code Optional<DataWrapper>} that will contain the data if the reading is successful, or be empty if it fails.
+     */
+    private Optional<DataWrapper> safelyReadData(String statement) {
+        try {
+            return Optional.ofNullable(readData(statement));
+        } catch (DatabaseConnectionException e) {
+            LOG.error("Error reading data with the statement: " + statement, e);
+            return Optional.empty();
+        }
     }
+
+    /**
+     * Adds Level One data to the existing data structure.
+     *
+     * <p>This method uses {@code safelyReadData} to read data based on the provided SQL statement.
+     * If the data reading is successful, it sets the name of the {@code DataWrapper} object,
+     * adds it to the {@code levelOneWrapper}, and returns it wrapped in an {@code Optional}.</p>
+     *
+     * @param elementName the name to set for the {@code DataWrapper} object.
+     * @param statement the SQL statement to be executed for data retrieval.
+     * @return an {@code Optional<DataWrapper>} containing the data read, or empty if reading fails.
+     */
+    private Optional<DataWrapper> addLevelOneData(String elementName, String statement) {
+        Optional<DataWrapper> rootLevelDataWrapperOpt = safelyReadData(statement);
+        if (rootLevelDataWrapperOpt.isPresent()) {
+            DataWrapper rootLevelDataWrapper = rootLevelDataWrapperOpt.get();
+            rootLevelDataWrapper.setName(elementName);
+            levelOneWrapper.add(rootLevelDataWrapper);
+        }
+        return rootLevelDataWrapperOpt;
+    }
+
+
 
     /**
      * Adds data for Level Two.
@@ -175,7 +216,7 @@ public class JsonRequestProcessor {
      * @param elementName    The name of the element to be processed.
      * @param statement      The SQL statement to be executed.
      * @param contentWrapper The parent data wrapper containing Level One data.
-     * @return A list of data wrappers containing processed Level Two data.
+     * @return A list of data wrappers containing processed Level Two data. The list may be empty if no data could be processed.
      */
     private List<DataWrapper> addLevelTwoData(String elementName, String statement, DataWrapper contentWrapper) {
         List<DataWrapper> currentDataWrappers = new ArrayList<>();
@@ -183,12 +224,13 @@ public class JsonRequestProcessor {
         for (ContentRecordData contentRecord : contentWrapper.getContentData()) {
             HashMap<String, String> data = collectDataFromContentRecord(contentWrapper, contentRecord);
             String dynStatement = replaceDynamicValuesInSql(statement, data);
-            DataWrapper childWrapper = readAndWrapData(dynStatement, elementName, contentRecord);
-            currentDataWrappers.add(childWrapper);
+            Optional<DataWrapper> childWrapperOpt = readAndWrapData(dynStatement, elementName, contentRecord);
+            childWrapperOpt.ifPresent(currentDataWrappers::add);
         }
 
         return currentDataWrappers;
     }
+
 
     private List<List<DataWrapper>> addLevelThreeData(String elementName, String statement, List<DataWrapper> currentDataWrappers) {
 
@@ -243,21 +285,30 @@ public class JsonRequestProcessor {
     /**
      * Reads data from a database, wraps it in a DataWrapper object, and associates it with a parent ContentRecordData object.
      *
+     * <p>If the data reading is successful, sets the name for the DataWrapper object and adds it to the parent ContentRecordData.</p>
+     *
      * @param dynStatement  The dynamic SQL statement to be executed.
      * @param elementName   The name of the element.
      * @param contentRecord The parent ContentRecordData object.
-     * @return A DataWrapper object containing the data.
+     * @return An Optional<DataWrapper> containing the data, or empty if reading fails.
      */
-    private DataWrapper readAndWrapData(String dynStatement, String elementName, ContentRecordData contentRecord) {
-        DataWrapper childWrapper = readData(dynStatement);
+    private Optional<DataWrapper> readAndWrapData(String dynStatement, String elementName, ContentRecordData contentRecord) {
+        Optional<DataWrapper> childWrapperOpt = safelyReadData(dynStatement);
         LOG.debug("dynStatement : " + elementName + " : " + dynStatement);
-        childWrapper.setName(elementName);
-        contentRecord.addDataWrapper(childWrapper);
-        return childWrapper;
+
+        if (childWrapperOpt.isPresent()) {
+            DataWrapper childWrapper = childWrapperOpt.get();
+            childWrapper.setName(elementName);
+            contentRecord.addDataWrapper(childWrapper);
+            return childWrapperOpt;
+        } else {
+            // Handle the case when no data could be read and wrapped, if necessary.
+            return Optional.empty();
+        }
     }
 
 
-    private DataWrapper readData(String sqlStatement) {
+    private DataWrapper readData(String sqlStatement) throws DatabaseConnectionException {
 
         return (DataWrapper) sqlController.readData(sqlStatement);
     }

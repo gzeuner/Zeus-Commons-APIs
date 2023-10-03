@@ -36,17 +36,27 @@ public class JdbcOperations implements IJdbcOperations {
 		initDataSource();
 	}
 
+	/**
+	 * Fetches a database connection from the connection pool.
+	 *
+	 * <p>This method attempts to fetch a database connection from the connection pool managed by the {@code dataSource}.</p>
+	 *
+	 * @return A {@code Connection} object representing the database connection.
+	 * @throws DatabaseConnectionException if fetching the connection from the pool fails.
+	 */
 	@Override
-	public Connection getDatabaseConnection() {
+	public Connection getDatabaseConnection() throws DatabaseConnectionException {
 		Connection con = null;
 		try {
 			con = dataSource.getBasicDataSource().getConnection();
 			LOG.debug("Fetching connection from the pool");
 		} catch (SQLException e) {
 			LOG.error("Error while fetching connection from the pool", e);
+			throw new DatabaseConnectionException("Failed to get database connection", e);
 		}
 		return con;
 	}
+
 
 	@Override
 	public void closeDatabaseConnection(Connection con) {
@@ -79,15 +89,16 @@ public class JdbcOperations implements IJdbcOperations {
 	}
 
 	@Override
-	public Statement getStmt(Connection con) {
+	public Statement getStmt(Connection con) throws DatabaseConnectionException {
 		Statement stmt = null;
 		try {
 			stmt = con.createStatement();
 		} catch (SQLException e) {
-			return stmt;
+			LOG.error("Error while creating statement", e);
+			throw new DatabaseConnectionException("Error while creating statement", e);
 		}
 		return stmt;
-	}
+}
 
 	public BasicDataSource getBasicDataSource() {
 		return dataSource.getBasicDataSource();

@@ -1,5 +1,7 @@
 package de.zeus.commons.base.interfaces;
 
+import de.zeus.commons.connector.jdbc.DatabaseConnectionException;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +18,7 @@ public interface IJdbcOperations {
 	 *
 	 * @return A database connection.
 	 */
-	Connection getDatabaseConnection();
+	Connection getDatabaseConnection() throws DatabaseConnectionException;
 
 	/**
 	 * Closes a database connection.
@@ -41,7 +43,7 @@ public interface IJdbcOperations {
 	 * @param con The database connection.
 	 * @return A statement.
 	 */
-	Statement getStmt(Connection con);
+	Statement getStmt(Connection con) throws DatabaseConnectionException;
 
 	/**
 	 * Closes a ResultSet and a Statement.

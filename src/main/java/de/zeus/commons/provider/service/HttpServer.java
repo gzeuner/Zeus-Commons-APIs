@@ -40,8 +40,8 @@ public class HttpServer implements IProviderConstants {
 	 * Registers the default routes for JSON and XML processing.
 	 */
 	public void registerRoutes() {
-		registerRoute("/get_json", MODE_JSON);
-		registerRoute("/get_xml", MODE_XML);
+		registerRoute("/json", MODE_JSON);
+		registerRoute("/xml", MODE_XML);
 	}
 
 	/**
@@ -51,7 +51,7 @@ public class HttpServer implements IProviderConstants {
 	 * @param mode  The processing mode (JSON or XML) for this route.
 	 */
 	public void registerRoute(String route, String mode) {
-		spark.Spark.post(route, (req, res) -> {
+		spark.Spark.get(route, (req, res) -> {
 			res.type(mode);
 			return controllerFactory.getController().process(gson.fromJson(req.body(), JsonObject.class), mode);
 		});

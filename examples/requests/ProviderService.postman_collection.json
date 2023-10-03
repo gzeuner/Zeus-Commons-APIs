@@ -8,7 +8,7 @@
 		{
 			"name": "localhost:4567/process",
 			"request": {
-				"method": "POST",
+				"method": "GET",
 				"header": [],
 				"body": {
 					"mode": "raw",
@@ -20,13 +20,13 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:4567/get_json",
+					"raw": "localhost:4567/json",
 					"host": [
 						"localhost"
 					],
 					"port": "4567",
 					"path": [
-						"get_json"
+						"json"
 					]
 				}
 			},

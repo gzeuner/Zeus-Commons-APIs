@@ -3,6 +3,7 @@ package de.zeus.commons.provider.logic.sql;
 import com.google.gson.JsonObject;
 import de.zeus.commons.base.interfaces.IConnectionController;
 import de.zeus.commons.base.interfaces.IJdbcOperations;
+import de.zeus.commons.connector.jdbc.DatabaseConnectionException;
 import de.zeus.commons.provider.service.JsonRequestProcessor;
 import de.zeus.commons.provider.constants.IProviderConstants;
 import de.zeus.commons.provider.convert.DataToJSON;
@@ -16,6 +17,7 @@ import net.sf.jsqlparser.statement.select.Select;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.locks.ReentrantLock;
@@ -41,21 +43,29 @@ public class JdbcConnectionController implements IConnectionController, IProvide
 		this.jdbcOperations = jdbcOperations;
 	}
 
-
 	@Override
 	public Object process(JsonObject jsonRequest, String mode) {
 		// Check if the "includeMetadata" flag is provided in the request and set the flag accordingly.
 		boolean includeMetadata = jsonRequest.has("includeMetadata")
 				&& jsonRequest.get("includeMetadata").getAsBoolean();
+		List<DataWrapper> data;
+
+		try {
+			data = getData(jsonRequest);
+		} catch (DatabaseConnectionException e) {
+			LOG.error("Failed to get data: ", e);
+			data = Arrays.asList(createErrorDataWrapper(e));
+		}
 
 		if (MODE_JSON.equals(mode)) {
-			return new DataToJSON(getData(jsonRequest), includeMetadata).getResult();
+			return new DataToJSON(data, includeMetadata).getResult();
 		}
 		if (MODE_XML.equals(mode)) {
-			return new DataToXML(getData(jsonRequest), includeMetadata).getResult();
+			return new DataToXML(data, includeMetadata).getResult();
 		}
 		return null;
 	}
+
 
 	/**
 	 * Retrieves data based on the provided JSON request.
@@ -63,7 +73,7 @@ public class JdbcConnectionController implements IConnectionController, IProvide
 	 * @param jsonRequest The JSON request.
 	 * @return A list of DataWrapper objects.
 	 */
-	public List<DataWrapper> getData(JsonObject jsonRequest) {
+	public List<DataWrapper> getData(JsonObject jsonRequest) throws DatabaseConnectionException {
 		connectDataService();
 		JsonRequestProcessor requestProcessor = new JsonRequestProcessor(this);
 		requestProcessor.processJSONRequest(jsonRequest);
@@ -73,7 +83,7 @@ public class JdbcConnectionController implements IConnectionController, IProvide
 	}
 
 	@Override
-	public void connectDataService() {
+	public void connectDataService() throws DatabaseConnectionException {
 		lock.lock(); // Lock the resource to ensure thread safety.
 		try {
 			this.databaseConnection = this.jdbcOperations.getDatabaseConnection();
@@ -144,7 +154,7 @@ public class JdbcConnectionController implements IConnectionController, IProvide
 	}
 
 	@Override
-	public DataWrapper readData(String sqlQuery) {
+	public DataWrapper readData(String sqlQuery) throws DatabaseConnectionException {
 		DataWrapper dataWrapper = new DataWrapper();
 
 		try {
@@ -201,5 +211,24 @@ public class JdbcConnectionController implements IConnectionController, IProvide
 		return dataWrapper;
 	}
 
+	private DataWrapper createErrorDataWrapper(Exception e) {
+		// Create a DataWrapper to indicate an error
+		DataWrapper errorWrapper = new DataWrapper();
+		errorWrapper.setName("Error");
+		MetaData errorMetaData = new MetaData();
+		errorMetaData.setColumnName("ErrorMessage");
+		errorMetaData.setColumnNumber(1);
+		errorWrapper.addMetaData(errorMetaData);
+		ContentRecordData errorRecord = new ContentRecordData();
+
+		// Add the error message as a content field
+		ContentFieldData errorField = new ContentFieldData();
+		errorField.setValue(e.getMessage());
+		errorField.setColumnNumber(1);
+		errorRecord.addContentFieldData(errorField);
+
+		errorWrapper.addContentData(errorRecord);
+		return errorWrapper;
+	}
 
 }
