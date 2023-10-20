@@ -15,7 +15,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import de.zeus.commons.base.interfaces.IJdbcOperations;
-import de.zeus.commons.connector.jdbc.config.JdbcConfig;
 import de.zeus.commons.connector.jdbc.config.DataSource;
 
 /**
@@ -42,17 +41,17 @@ public class JdbcOperations implements IJdbcOperations {
 	 * <p>This method attempts to fetch a database connection from the connection pool managed by the {@code dataSource}.</p>
 	 *
 	 * @return A {@code Connection} object representing the database connection.
-	 * @throws DatabaseConnectionException if fetching the connection from the pool fails.
+	 * @throws ProcessingException if fetching the connection from the pool fails.
 	 */
 	@Override
-	public Connection getDatabaseConnection() throws DatabaseConnectionException {
+	public Connection getDatabaseConnection() throws ProcessingException {
 		Connection con = null;
 		try {
 			con = dataSource.getBasicDataSource().getConnection();
 			LOG.debug("Fetching connection from the pool");
 		} catch (SQLException e) {
 			LOG.error("Error while fetching connection from the pool", e);
-			throw new DatabaseConnectionException("Failed to get database connection", e);
+			throw new ProcessingException("Failed to get database connection", e);
 		}
 		return con;
 	}
@@ -89,13 +88,13 @@ public class JdbcOperations implements IJdbcOperations {
 	}
 
 	@Override
-	public Statement getStmt(Connection con) throws DatabaseConnectionException {
+	public Statement getStmt(Connection con) throws ProcessingException {
 		Statement stmt = null;
 		try {
 			stmt = con.createStatement();
 		} catch (SQLException e) {
 			LOG.error("Error while creating statement", e);
-			throw new DatabaseConnectionException("Error while creating statement", e);
+			throw new ProcessingException("Error while creating statement", e);
 		}
 		return stmt;
 }

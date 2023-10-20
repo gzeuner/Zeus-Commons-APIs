@@ -3,7 +3,7 @@ package de.zeus.commons.provider.logic.sql;
 import com.google.gson.JsonObject;
 import de.zeus.commons.base.interfaces.IConnectionController;
 import de.zeus.commons.base.interfaces.IJdbcOperations;
-import de.zeus.commons.connector.jdbc.DatabaseConnectionException;
+import de.zeus.commons.connector.jdbc.ProcessingException;
 import de.zeus.commons.provider.service.JsonRequestProcessor;
 import de.zeus.commons.provider.constants.IProviderConstants;
 import de.zeus.commons.provider.convert.DataToJSON;
@@ -16,10 +16,7 @@ import net.sf.jsqlparser.parser.CCJSqlParserUtil;
 import net.sf.jsqlparser.statement.select.Select;
 
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -52,9 +49,9 @@ public class JdbcConnectionController implements IConnectionController, IProvide
 
 		try {
 			data = getData(jsonRequest);
-		} catch (DatabaseConnectionException e) {
-			LOG.error("Failed to get data: ", e);
-			data = Arrays.asList(createErrorDataWrapper(e));
+		} catch (ProcessingException e) {
+			LOG.error("Failed to process data: ", e);
+			data = Collections.singletonList(createErrorDataWrapper(e));
 		}
 
 		if (MODE_JSON.equals(mode)) {
@@ -73,7 +70,7 @@ public class JdbcConnectionController implements IConnectionController, IProvide
 	 * @param jsonRequest The JSON request.
 	 * @return A list of DataWrapper objects.
 	 */
-	public List<DataWrapper> getData(JsonObject jsonRequest) throws DatabaseConnectionException {
+	public List<DataWrapper> getData(JsonObject jsonRequest) throws ProcessingException {
 		connectDataService();
 		JsonRequestProcessor requestProcessor = new JsonRequestProcessor(this);
 		requestProcessor.processJSONRequest(jsonRequest);
@@ -83,7 +80,7 @@ public class JdbcConnectionController implements IConnectionController, IProvide
 	}
 
 	@Override
-	public void connectDataService() throws DatabaseConnectionException {
+	public void connectDataService() throws ProcessingException {
 		lock.lock(); // Lock the resource to ensure thread safety.
 		try {
 			this.databaseConnection = this.jdbcOperations.getDatabaseConnection();
@@ -154,7 +151,7 @@ public class JdbcConnectionController implements IConnectionController, IProvide
 	}
 
 	@Override
-	public DataWrapper readData(String sqlQuery) throws DatabaseConnectionException {
+	public DataWrapper readData(String sqlQuery) throws ProcessingException {
 		DataWrapper dataWrapper = new DataWrapper();
 
 		try {
@@ -204,8 +201,10 @@ public class JdbcConnectionController implements IConnectionController, IProvide
 			}
 		} catch (JSQLParserException e) {
 			LOG.error("Error parsing SQL query", e);
+			throw new ProcessingException("Error parsing SQL query", e);
 		} catch (SQLException e) {
 			LOG.error("Error while executing SQLQuery", e);
+			throw new ProcessingException("Error while executing SQLQuery", e);
 		}
 
 		return dataWrapper;

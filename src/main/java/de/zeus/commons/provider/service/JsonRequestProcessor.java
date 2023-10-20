@@ -3,7 +3,7 @@ package de.zeus.commons.provider.service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import de.zeus.commons.base.interfaces.IConnectionController;
-import de.zeus.commons.connector.jdbc.DatabaseConnectionException;
+import de.zeus.commons.connector.jdbc.ProcessingException;
 import de.zeus.commons.provider.model.ContentFieldData;
 import de.zeus.commons.provider.model.ContentRecordData;
 import de.zeus.commons.provider.model.DataWrapper;
@@ -180,7 +180,7 @@ public class JsonRequestProcessor {
     private Optional<DataWrapper> safelyReadData(String statement) {
         try {
             return Optional.ofNullable(readData(statement));
-        } catch (DatabaseConnectionException e) {
+        } catch (ProcessingException e) {
             LOG.error("Error reading data with the statement: " + statement, e);
             return Optional.empty();
         }
@@ -308,7 +308,7 @@ public class JsonRequestProcessor {
     }
 
 
-    private DataWrapper readData(String sqlStatement) throws DatabaseConnectionException {
+    private DataWrapper readData(String sqlStatement) throws ProcessingException {
 
         return (DataWrapper) sqlController.readData(sqlStatement);
     }
