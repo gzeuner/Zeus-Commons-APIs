@@ -30,6 +30,23 @@ public class SparkConfig extends ConfigBase {
     private String sparkJavaAllowedHosts;
 
     /**
+     * The path to the keyStore.
+     */
+    private String keyStoreLocation;
+    /**
+     * The password for the keyStore.
+     */
+    private String keyStorePassword;
+    /**
+     * The path to the trusted store
+     */
+    private String trustStoreLocation;
+    /**
+     * The password to the trusted store
+     */
+    private String trustStorePassword;
+
+    /**
      * Private constructor to enforce a singleton pattern and specify the properties file path.
      */
     private SparkConfig() {
@@ -53,6 +70,10 @@ public class SparkConfig extends ConfigBase {
         if (readPropertiesFile()) {
             setSparkJavaPort(getProperty("spark.port"));
             setSparkJavaAllowedHosts(getProperty("spark.host"));
+            setKeyStoreLocation(getProperty("spark.ssl.keystore.location"));
+            setKeyStorePassword(getProperty("spark.ssl.keystore.password"));
+            setTrustStoreLocation(getProperty("spark.ssl.truststore.location"));
+            setTrustStorePassword(getProperty("spark.ssl.truststore.password"));
         }
     }
 
@@ -115,4 +136,77 @@ public class SparkConfig extends ConfigBase {
     public void setPropertiesFile(String propertiesFile) {
         this.propertiesFile = propertiesFile;
     }
+
+    /**
+     * Retrieves the location of the KeyStore file.
+     *
+     * @return The location of the KeyStore file as a String.
+     */
+    public String getKeyStoreLocation() {
+        return keyStoreLocation;
+    }
+
+    /**
+     * Sets the location of the KeyStore file.
+     *
+     * @param keyStoreLocation The location of the KeyStore file as a String.
+     */
+    public void setKeyStoreLocation(String keyStoreLocation) {
+        this.keyStoreLocation = keyStoreLocation;
+    }
+
+    /**
+     * Retrieves the password for the KeyStore.
+     *
+     * @return The password for the KeyStore as a String.
+     */
+    public String getKeyStorePassword() {
+        return keyStorePassword;
+    }
+
+    /**
+     * Sets the password for the KeyStore.
+     *
+     * @param keyStorePassword The password for the KeyStore as a String.
+     */
+    public void setKeyStorePassword(String keyStorePassword) {
+        this.keyStorePassword = keyStorePassword;
+    }
+
+    /**
+     * Retrieves the location of the TrustStore file.
+     *
+     * @return The location of the TrustStore file as a String.
+     */
+    public String getTrustStoreLocation() {
+        return trustStoreLocation;
+    }
+
+    /**
+     * Sets the location of the TrustStore file.
+     *
+     * @param trustStoreLocation The location of the TrustStore file as a String.
+     */
+    public void setTrustStoreLocation(String trustStoreLocation) {
+        this.trustStoreLocation = trustStoreLocation;
+    }
+
+    /**
+     * Retrieves the password for the TrustStore.
+     *
+     * @return The password for the TrustStore as a String.
+     */
+    public String getTrustStorePassword() {
+        return trustStorePassword;
+    }
+
+    /**
+     * Sets the password for the TrustStore.
+     *
+     * @param trustStorePassword The password for the TrustStore as a String.
+     */
+    public void setTrustStorePassword(String trustStorePassword) {
+        this.trustStorePassword = trustStorePassword;
+    }
+
 }
