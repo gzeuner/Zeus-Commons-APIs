@@ -49,3 +49,13 @@ https://h2database.com/html/license.html
 
 - License: Apache 2.0
 - Source: [JSqlParser](https://github.com/JSQLParser/JSqlParser)
+
+## JT400
+
+- License: IBM Public License 1.0
+- Source: [JT400](https://sourceforge.net/projects/jt400/)
+
+## Bouncy Castle
+
+- License: MIT License
+- Source: [Bouncy Castle](https://www.bouncycastle.org/license.html)
