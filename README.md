@@ -46,6 +46,34 @@ Die Anwendung unterstützt Datenverschachtelungen bis zu vier Ebenen. Dies erlau
     "includeMetadata": false
 }
 ```
+### Maven Build-Profile
+Dieses Projekt verwendet Maven für den Build-Prozess und stellt verschiedene Profile zur Verfügung, um spezifische Abhängigkeiten hinzuzufügen oder zu entfernen.
+
+### include-jt400 Profil
+Dieses Profil fügt die JT400-Bibliothek als Abhängigkeit hinzu und ermöglicht die Integration mit IBM i (früher AS/400).
+```bash
+mvn clean install -P include-jt400
+```
+### include-ssl Profil
+Dieses Profil fügt die Bouncy Castle Bibliothek als Abhängigkeit hinzu, um SSL-Unterstützung zu ermöglichen.
+```bash
+mvn clean install -P include-ssl
+```
+### fat-jar Profil
+Dieses Profil erstellt ein "Uber-JAR", das alle Abhängigkeiten in einer einzigen JAR-Datei bündelt. Ideal für den einfachen Transport und Deployment.
+```bash
+mvn clean install -P fat-jar
+```
+### standard-jar Profil
+Dieses Profil erstellt ein Standard-JAR ohne eingebettete Abhängigkeiten. Nützlich, wenn Sie die Abhängigkeiten selbst verwalten wollen.
+```bash
+mvn clean install -P standard-jar
+```
+### Kombinierte Profile
+Es ist auch möglich, mehrere Profile gleichzeitig zu verwenden, um eine Kombination der jeweiligen Features zu erhalten.
+```bash
+mvn clean install -P include-jt400,include-ssl,fat-jar
+```
 ## License:
 [Apache 2.0](LICENSE)
 ## Besuchen Sie:
@@ -96,6 +124,34 @@ The application supports data nesting up to four levels, allowing for complex qu
     },
     "includeMetadata": false
 }
+```
+### Maven Build Profiles
+This project uses Maven for the build process and provides several profiles to add or remove specific dependencies.
+
+### include-jt400 profile
+This profile adds the JT400 library as a dependency and allows integration with IBM i (formerly AS/400).
+```bash
+mvn clean install -P include-jt400
+```
+### include-ssl profile
+This profile adds the Bouncy Castle library as a dependency to enable SSL support.
+```bash
+mvn clean install -P include-ssl
+```
+### fat-jar profile
+This profile creates an "Uber JAR" that bundles all dependencies into a single JAR file. Ideal for easy transport and deployment.
+```bash
+mvn clean install -P fat-jar
+```
+### standard-jar profile
+This profile creates a standard JAR without embedded dependencies. Useful if you want to manage the dependencies yourself.
+```bash
+mvn clean install -P standard-jar
+```
+### Combined profiles
+It is also possible to use several profiles at the same time to get a combination of their features.
+```bash
+mvn clean install -P include-jt400,include-ssl,fat-jar
 ```
 ## License:
 [Apache 2.0](LICENSE)
