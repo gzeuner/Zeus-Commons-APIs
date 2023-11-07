@@ -14,7 +14,11 @@ import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
 import org.bouncycastle.cert.jcajce.JcaX509v3CertificateBuilder;
 
 /**
- * A utility class for generating SSL key and trust stores.
+ * An OPTIONAL utility class for generating SSL key and trust stores for TESTING purposes.
+ *
+ * NOTE: This class uses the Bouncy Castle library. As it is intended for testing purposes only,
+ * It has been excluded from the main build process to reduce dependencies.
+ * To use it, the appropriate Bouncy Castle dependencies must be added to the pom.xml.
  */
 public class SSLKeyAndTrustStoreGenerator {
 
