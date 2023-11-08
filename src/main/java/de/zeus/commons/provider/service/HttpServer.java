@@ -104,7 +104,7 @@ public class HttpServer implements IProviderConstants {
 	 * @param mode  The data format (either JSON or XML).
 	 */
 	public void registerRoute(String route, String mode) {
-		spark.Spark.get(route, (req, res) -> {
+		spark.Spark.post(route, (req, res) -> {
 			res.type(mode);
 			return controllerFactory.getController().process(gson.fromJson(req.body(), JsonObject.class), mode);
 		});

@@ -25,7 +25,7 @@ public class MetaData {
 	// Whether this column is a primary key
 	private boolean isPrimaryKey = false;
 	// List of table information related to this column
-	private List<TableInfo> tableInfoList = new ArrayList<>();
+	private final List<TableInfo> tableInfoList = new ArrayList<>();
 
 	// Formatting object
 	private Format format = new Format();
@@ -102,4 +102,22 @@ public class MetaData {
 			this.tableInfoList.add(tableInfo);
 		}
 	}
+
+	public void setPrimaryKey(boolean primaryKey) {
+		this.isPrimaryKey = primaryKey;
+	}
+
+	@Override
+	public String toString() {
+		return "MetaData{" +
+				"columnNumber=" + columnNumber +
+				", columnName='" + columnName + '\'' +
+				", columnLabel='" + columnLabel + '\'' +
+				", columnSqlDataType=" + columnSqlDataType +
+				", columnSqlDataTypeName='" + columnSqlDataTypeName + '\'' +
+				", columnClassName='" + columnClassName + '\'' +
+				", isPrimaryKey=" + isPrimaryKey +
+				'}';
+	}
+
 }

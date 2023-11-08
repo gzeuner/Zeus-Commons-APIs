@@ -1,15 +1,19 @@
 package de.zeus.commons.provider.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Represents a single record of data retrieved from a database query result.
  */
 public class ContentRecordData {
 
-	private int recordNumber; // The record number in the JDBC result set
-	private ArrayList<ContentFieldData> fieldDataObjs = new ArrayList<>(); // List of field data objects
-	private ArrayList<DataWrapper> dataWrappers = new ArrayList<>(); // Data wrapper objects
+	private int recordNumber;
+	private final ArrayList<ContentFieldData> fieldDataObjs = new ArrayList<>(); // List of field data objects
+	private final ArrayList<DataWrapper> dataWrappers = new ArrayList<>(); // Data wrapper objects
+	private final Map<Integer, MetaData> metaDataMap = new HashMap<>();
+
 
 	/**
 	 * Gets the list of field data objects for this record.

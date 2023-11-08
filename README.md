@@ -13,8 +13,8 @@ Zeus-Commons-APIs ist Ihr Schweizer Taschenmesser für Backend-Services. Erstell
 ### Endpunkte und Metadaten
 Es gibt zwei Hauptendpunkte:
 
-- GET localhost:4567/json gibt Daten im JSON-Format zurück.
-- GET localhost:4567/xml gibt Daten im XML-Format zurück.
+- POST localhost:4567/json gibt Daten im JSON-Format zurück.
+- POST localhost:4567/xml gibt Daten im XML-Format zurück.
 
 Sie können die Ausgabe von Metadaten ein- oder ausschalten, indem Sie das Feld includeMetadata im JSON-Body auf true oder false setzen.
 
@@ -93,8 +93,8 @@ Zeus-Commons-APIs is your Swiss Army knife for backend services. Easily create p
 ### Endpoints and Metadata
 There are two main endpoints:
 
-- GET localhost:4567/json returns data in JSON format.
-- GET localhost:4567/xml returns data in XML format.
+- POST localhost:4567/json returns data in JSON format.
+- POST localhost:4567/xml returns data in XML format.
 
 You can toggle metadata output on or off by setting the includeMetadata field in the JSON body to true or false.
 

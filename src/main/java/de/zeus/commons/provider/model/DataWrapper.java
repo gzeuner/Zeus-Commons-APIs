@@ -11,9 +11,9 @@ public class DataWrapper {
 	// Default name for the wrapper
 	private String name = "Entities";
 	// Collection of metadata for each column
-	private HashMap<Integer, MetaData> metaData = new HashMap<>();
+	private final HashMap<Integer, MetaData> metaData = new HashMap<>();
 	// Collection of content records
-	private ArrayList<ContentRecordData> contentData = new ArrayList<>();
+	private final ArrayList<ContentRecordData> contentData = new ArrayList<>();
 
 	public String getName() {
 		return name;
@@ -47,5 +47,4 @@ public class DataWrapper {
 	public MetaData getMetaDataForField(int columnNumber) {
 		return metaData.get(columnNumber);
 	}
-
 }
