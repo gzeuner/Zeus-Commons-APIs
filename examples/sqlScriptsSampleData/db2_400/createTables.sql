@@ -49,6 +49,8 @@ CREATE TABLE YOUR_LIB.AGENT_REVENUE (
    PRIMARY KEY (AGENT_CODE)
 );
 
+-- Create Entity Attribute Value table
+
 CREATE TABLE YOUR_LIB.eav_data (
     entity_id INTEGER NOT NULL,
     attribute_key VARCHAR(255) NOT NULL,
