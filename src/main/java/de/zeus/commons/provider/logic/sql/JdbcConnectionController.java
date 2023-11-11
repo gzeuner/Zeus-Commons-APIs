@@ -5,7 +5,7 @@ import de.zeus.commons.base.interfaces.IConnectionController;
 import de.zeus.commons.base.interfaces.IJdbcOperations;
 import de.zeus.commons.connector.jdbc.ProcessingException;
 import de.zeus.commons.provider.service.JsonRequestProcessor;
-import de.zeus.commons.provider.constants.IProviderConstants;
+import de.zeus.commons.base.constants.IConstants;
 import de.zeus.commons.provider.convert.DataToJSON;
 import de.zeus.commons.provider.convert.DataToXML;
 import de.zeus.commons.provider.model.*;
@@ -22,7 +22,7 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  * Controller for JDBC database connections.
  */
-public class JdbcConnectionController implements IConnectionController, IProviderConstants {
+public class JdbcConnectionController implements IConnectionController, IConstants {
 
 	private static final Log LOG = LogFactory.getLog(JdbcConnectionController.class);
 

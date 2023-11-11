@@ -48,3 +48,17 @@ CREATE TABLE AGENT_REVENUE (
    CUMULATIVE_REVENUE  DECIMAL(12,2)     NOT NULL,
    PRIMARY KEY (AGENT_CODE)
 );
+
+-- Create Entity Attribute Value table
+
+CREATE TABLE eav_data (
+    entity_id INT NOT NULL,
+    attribute_key VARCHAR(255) NOT NULL,
+    attribute_value TEXT,
+    attribute_type VARCHAR(50),
+    PRIMARY KEY (entity_id, attribute_key)
+);
+
+CREATE INDEX idx_entity_id ON eav_data (entity_id);
+CREATE INDEX idx_attribute_key ON eav_data (attribute_key);
+

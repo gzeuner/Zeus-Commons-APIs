@@ -1,6 +1,6 @@
 package de.zeus.commons.provider.convert;
 
-import de.zeus.commons.provider.constants.IProviderConstants;
+import de.zeus.commons.base.constants.IConstants;
 import de.zeus.commons.provider.model.ContentFieldData;
 import de.zeus.commons.provider.model.ContentRecordData;
 import de.zeus.commons.provider.model.DataWrapper;
@@ -101,13 +101,13 @@ public class DataToXML {
      * @return An XML element representing the metadata.
      */
     private Element createMetaDataElement(MetaData metaData) {
-        Element metaDataElement = new Element(IProviderConstants.META_DATA_SUFFIX);
+        Element metaDataElement = new Element(IConstants.META_DATA_SUFFIX);
 
-        addSimpleElement(metaDataElement, IProviderConstants.COLUMN_NUMBER, String.valueOf(metaData.getColumnNumber()));
-        addSimpleElement(metaDataElement, IProviderConstants.IS_PRIMARY_KEY, String.valueOf(metaData.isPrimaryKey()));
-        addSimpleElement(metaDataElement, IProviderConstants.DATA_TYPE_NAME, metaData.getColumnSqlDataTypeName());
-        addSimpleElement(metaDataElement, IProviderConstants.DATA_TYPE_ID, String.valueOf(metaData.getColumnSqlDataType()));
-        addSimpleElement(metaDataElement, IProviderConstants.CLASS_NAME, metaData.getColumnClassName());
+        addSimpleElement(metaDataElement, IConstants.COLUMN_NUMBER, String.valueOf(metaData.getColumnNumber()));
+        addSimpleElement(metaDataElement, IConstants.IS_PRIMARY_KEY, String.valueOf(metaData.isPrimaryKey()));
+        addSimpleElement(metaDataElement, IConstants.DATA_TYPE_NAME, metaData.getColumnSqlDataTypeName());
+        addSimpleElement(metaDataElement, IConstants.DATA_TYPE_ID, String.valueOf(metaData.getColumnSqlDataType()));
+        addSimpleElement(metaDataElement, IConstants.CLASS_NAME, metaData.getColumnClassName());
 
         return metaDataElement;
     }

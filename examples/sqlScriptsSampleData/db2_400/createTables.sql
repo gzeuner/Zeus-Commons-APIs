@@ -48,3 +48,14 @@ CREATE TABLE YOUR_LIB.AGENT_REVENUE (
    CUMULATIVE_REVENUE  DECIMAL(12, 2)    NOT NULL,
    PRIMARY KEY (AGENT_CODE)
 );
+
+CREATE TABLE YOUR_LIB.eav_data (
+    entity_id INTEGER NOT NULL,
+    attribute_key VARCHAR(255) NOT NULL,
+    attribute_value CLOB(2M),
+    attribute_type VARCHAR(50),
+    PRIMARY KEY (entity_id, attribute_key)
+)
+
+CREATE INDEX YOUR_LIB.idx_entity_id ON eav_data (entity_id);
+CREATE INDEX YOUR_LIB.idx_attribute_key ON eav_data (attribute_key);

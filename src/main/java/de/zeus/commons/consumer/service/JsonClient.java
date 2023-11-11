@@ -1,79 +1,84 @@
 package de.zeus.commons.consumer.service;
 
 import de.zeus.commons.consumer.convert.JSONProcessor;
+import de.zeus.commons.file.FileUtils;
 import de.zeus.commons.provider.model.DynamicJsonObject;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.stream.Collectors;
 
+import static de.zeus.commons.base.constants.IConstants.MODE_JSON;
 
 public class JsonClient {
 
+    private static final Logger LOG = Logger.getLogger(JsonClient.class.getName());
+
     public static void main(String[] args) {
-        JsonClient client = new JsonClient();
-        client.sendRequest();
+        if (args.length < 2) {
+            LOG.log(Level.SEVERE,"Missing arguments. Please enter the file name and the service URL as arguments.");
+            return;
+        }
+
+        String serviceUrl = args[0];
+        String filePath = args[1];
+
+        URL url;
+        try {
+            url = new URL(serviceUrl);
+        } catch (MalformedURLException e) {
+            LOG.log(Level.SEVERE,"Malformed URL: " + serviceUrl, e);
+            return;
+        }
+
+        FileUtils fileUtils = new FileUtils();
+        try {
+            String jsonInputString = fileUtils.readFileToString(filePath);
+            JsonClient client = new JsonClient();
+            client.sendRequest(url, jsonInputString);
+        } catch (IOException e) {
+            LOG.log(Level.SEVERE,"Error reading the file:" + filePath, e);
+        }
     }
 
-    public void sendRequest() {
-
+    public void sendRequest(URL url, String jsonInputString) {
+        HttpURLConnection conn = null;
         try {
-            URL url = new URL("http://localhost:4567/json");
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
-            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("Content-Type", MODE_JSON);
             conn.setDoOutput(true);
 
-            String jsonInputString = "{"
-                    + "\"query\": {"
-                    + "    \"name\": \"agents\","
-                    + "    \"statement\": \"select * from agents\","
-                    + "    \"subquery\": {"
-                    + "        \"name\": \"orders\","
-                    + "        \"statement\": \"select * from orders where agent_code = '[$agent_code]'\","
-                    + "        \"subquery\": {"
-                    + "            \"name\": \"customers\","
-                    + "            \"statement\": \"select * from customers where cust_code = '[$cust_code]'\","
-                    + "            \"subquery\": {"
-                    + "                \"name\": \"revenue\","
-                    + "                \"statement\": \"select * from agent_revenue where agent_code = '[$agent_code]'\""
-                    + "            }"
-                    + "        }"
-                    + "    }"
-                    + "},"
-                    + "\"includeMetadata\": false"
-                    + "}";
-
-
-
-            try(OutputStream os = conn.getOutputStream()) {
-                byte[] input = jsonInputString.getBytes("utf-8");
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
                 os.write(input, 0, input.length);
+                LOG.info("Request sent to: " + url);
             }
 
-            try(BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"))) {
-                StringBuilder response = new StringBuilder();
-                String responseLine;
-                while ((responseLine = br.readLine()) != null) {
-                    response.append(responseLine.trim());
-                }
-                String json = response.toString();
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), StandardCharsets.UTF_8))) {
+                String jsonResponse = br.lines().map(String::trim).collect(Collectors.joining());
                 JSONProcessor processor = new JSONProcessor();
-                DynamicJsonObject result = processor.processJson(json);
+                DynamicJsonObject result = processor.processJson(jsonResponse);
 
-                System.out.println("Verarbeitetes JSON:");
-                System.out.println(result.toPrettyString());
-
-
-
+                LOG.info("Processed JSON:");
+                LOG.info(result.toPrettyString());
             }
-
-            conn.disconnect();
-
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (IOException e) {
+            LOG.log(Level.SEVERE,"Error sending the request to " + url, e);
+        } finally {
+            if (conn != null) {
+                conn.disconnect();
+                LOG.info("Connection disconnected from " + url);
+            }
         }
     }
 }

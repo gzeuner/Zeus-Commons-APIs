@@ -13,8 +13,8 @@ import java.io.StringWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static de.zeus.commons.provider.constants.IProviderConstants.MODE_JSON;
-import static de.zeus.commons.provider.constants.IProviderConstants.MODE_XML;
+import static de.zeus.commons.base.constants.IConstants.MODE_JSON;
+import static de.zeus.commons.base.constants.IConstants.MODE_XML;
 import static org.jdom2.output.Format.getPrettyFormat;
 
 public class Format {

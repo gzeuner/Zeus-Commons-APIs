@@ -5,7 +5,7 @@ import com.google.gson.JsonObject;
 import de.zeus.commons.base.interfaces.IConnectionController;
 import de.zeus.commons.connector.jdbc.config.JdbcConfig;
 import de.zeus.commons.connector.jdbc.config.SparkConfig;
-import de.zeus.commons.file.FileWriterUtil;
+import de.zeus.commons.file.FileUtils;
 import de.zeus.commons.provider.logic.sql.ConnectionControllerFactory;
 import de.zeus.commons.provider.service.HttpServer;
 import org.apache.commons.logging.Log;
@@ -95,9 +95,9 @@ public class Provider {
      */
     public static void initServiceFromConsole(ConnectionControllerFactory controllerFactory, JsonObject jsonRequest, String mode) {
         IConnectionController connectionController = controllerFactory.getController();
-        FileWriterUtil fileWriterUtil = new FileWriterUtil();
+        FileUtils fileUtils = new FileUtils();
         try {
-            fileWriterUtil.writeContentToFile(String.valueOf(connectionController.process(jsonRequest, mode)), mode);
+            fileUtils.writeContentToFile(String.valueOf(connectionController.process(jsonRequest, mode)), mode);
         } catch (Exception e) {
             LOG.error("IO-File or Format Error. ", e);
         }

@@ -1,9 +1,5 @@
 package de.zeus.commons.file;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
 import de.zeus.commons.provider.format.Format;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -11,14 +7,15 @@ import org.jdom2.JDOMException;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.stream.Collectors;
 
 
 /**
  * Utility class for writing content to files.
  */
-public class FileWriterUtil {
+public class FileUtils {
 
-    private static final Log LOG = LogFactory.getLog(FileWriterUtil.class) ;
+    private static final Log LOG = LogFactory.getLog(FileUtils.class) ;
     /**
      * Reference to Format-Helper
      */
@@ -47,4 +44,20 @@ public class FileWriterUtil {
             }
         }
     }
+    /**
+     * Reads the content of a file and returns it as a string.
+     *
+     * @param filePath The path to the file.
+     * @return The content of the file as a string.
+     * @throws IOException If an input/output error occurs.
+     */
+    public String readFileToString(String filePath) throws IOException {
+        String contentBuilder;
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8))) {
+            contentBuilder = reader.lines().collect(Collectors.joining());
+        }
+        return contentBuilder;
+    }
+
 }

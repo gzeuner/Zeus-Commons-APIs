@@ -1,9 +1,9 @@
-package de.zeus.commons.provider.constants;
+package de.zeus.commons.base.constants;
 
 /**
- * This interface defines constants used in the provider configuration and data processing.
+ * This interface defines constants used in configuration and data processing.
  */
-public interface IProviderConstants {
+public interface IConstants {
 
     /**
      * Mode for XML output format.
@@ -44,4 +44,10 @@ public interface IProviderConstants {
      * Suffix for metadata keys.
      */
     String META_DATA_SUFFIX = "_metadata";
+
+    /**
+     * Key for specifying contentData.
+     */
+    String CONTENT_DATA = "contentData";
+
 }

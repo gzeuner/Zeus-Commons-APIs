@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import de.zeus.commons.connector.jdbc.config.ConfigBase;
 import de.zeus.commons.connector.jdbc.config.SparkConfig;
-import de.zeus.commons.provider.constants.IProviderConstants;
+import de.zeus.commons.base.constants.IConstants;
 import de.zeus.commons.provider.logic.sql.ConnectionControllerFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -14,7 +14,7 @@ import org.apache.commons.logging.LogFactory;
  * Configures the HTTP server based on provided SparkConfig settings,
  * including optional SSL configurations.
  */
-public class HttpServer implements IProviderConstants {
+public class HttpServer implements IConstants {
 
 	private static final Log LOG = LogFactory.getLog(HttpServer.class);
 	private final ConnectionControllerFactory controllerFactory;

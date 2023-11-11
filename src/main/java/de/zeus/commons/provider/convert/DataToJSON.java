@@ -1,7 +1,7 @@
 package de.zeus.commons.provider.convert;
 
 import com.google.gson.JsonObject;
-import de.zeus.commons.provider.constants.IProviderConstants;
+import de.zeus.commons.base.constants.IConstants;
 import de.zeus.commons.provider.model.ContentFieldData;
 import de.zeus.commons.provider.model.ContentRecordData;
 import de.zeus.commons.provider.model.DataWrapper;
@@ -99,7 +99,7 @@ public class DataToJSON {
                 JsonObject metaDataJson = createMetaDataJson(dataWrapper, contentField);
                 if (metaDataJson != null) {
                     contentDetail.add(columnName +
-                            IProviderConstants.META_DATA_SUFFIX, metaDataJson);
+                            IConstants.META_DATA_SUFFIX, metaDataJson);
 
                     // Logging the inclusion of metadata
                     LOG.debug("Included metadata for column: " + columnName);
@@ -116,15 +116,15 @@ public class DataToJSON {
 
         if (metaData != null) {
             JsonObject metaDataJson = new JsonObject();
-            metaDataJson.addProperty(IProviderConstants.COLUMN_NUMBER,
+            metaDataJson.addProperty(IConstants.COLUMN_NUMBER,
                     metaData.getColumnNumber());
-            metaDataJson.addProperty(IProviderConstants.IS_PRIMARY_KEY,
+            metaDataJson.addProperty(IConstants.IS_PRIMARY_KEY,
                     metaData.isPrimaryKey());
-            metaDataJson.addProperty(IProviderConstants.DATA_TYPE_NAME,
+            metaDataJson.addProperty(IConstants.DATA_TYPE_NAME,
                     metaData.getColumnSqlDataTypeName());
-            metaDataJson.addProperty(IProviderConstants.DATA_TYPE_ID,
+            metaDataJson.addProperty(IConstants.DATA_TYPE_ID,
                     metaData.getColumnSqlDataType());
-            metaDataJson.addProperty(IProviderConstants.CLASS_NAME,
+            metaDataJson.addProperty(IConstants.CLASS_NAME,
                     metaData.getColumnClassName());
             return metaDataJson;
         }

@@ -6,12 +6,14 @@ import com.google.gson.JsonParser;
 import de.zeus.commons.provider.model.DynamicJsonObject;
 import de.zeus.commons.provider.model.MetaData;
 
+import static de.zeus.commons.base.constants.IConstants.*;
+
 public class JSONProcessor {
 
     public DynamicJsonObject processJson(String json) {
         JsonElement element = JsonParser.parseString(json);
         JsonObject rootObject = element.getAsJsonObject();
-        JsonObject contentDataObject = rootObject.getAsJsonObject("contentData");
+        JsonObject contentDataObject = rootObject.getAsJsonObject(CONTENT_DATA);
 
         return processNode(contentDataObject);
     }
@@ -22,7 +24,7 @@ public class JSONProcessor {
         for (String key : jsonObject.keySet()) {
             JsonElement element = jsonObject.get(key);
 
-            if (key.endsWith("_metadata")) {
+            if (key.endsWith(META_DATA_SUFFIX)) {
                 MetaData metaData = processMetaData(jsonObject, key);
                 obj.addMetaData(key, metaData);
             } else if (element.isJsonObject()) {
@@ -41,7 +43,7 @@ public class JSONProcessor {
         MetaData metaData = new MetaData();
 
         metaData.setColumnNumber(metadataJson.get("columnNumber").getAsInt());
-        metaData.setColumnName(key.replace("_metadata", ""));
+        metaData.setColumnName(key.replace(META_DATA_SUFFIX, ""));
         metaData.setColumnSqlDataType(metadataJson.get("dataTypeId").getAsInt());
         metaData.setColumnSqlDataTypeName(metadataJson.get("dataTypeName").getAsString());
         metaData.setColumnClassName(metadataJson.get("className").getAsString());

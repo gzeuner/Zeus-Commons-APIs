@@ -15,5 +15,5 @@
       }
     }
   },
-  "includeMetadata": false
+  "includeMetadata": true
 }
