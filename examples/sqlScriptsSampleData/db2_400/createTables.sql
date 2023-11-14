@@ -50,14 +50,25 @@ CREATE TABLE YOUR_LIB.AGENT_REVENUE (
 );
 
 -- Create Entity Attribute Value table
-
 CREATE TABLE YOUR_LIB.eav_data (
-    entity_id INTEGER NOT NULL,
+    entity_id VARCHAR(255) NOT NULL,
     attribute_key VARCHAR(255) NOT NULL,
-    attribute_value CLOB(2M),
-    attribute_type VARCHAR(50),
+    attribute_value CLOB(1M) NOT NULL,
     PRIMARY KEY (entity_id, attribute_key)
-)
+);
 
-CREATE INDEX YOUR_LIB.idx_entity_id ON eav_data (entity_id);
-CREATE INDEX YOUR_LIB.idx_attribute_key ON eav_data (attribute_key);
+CREATE INDEX idx_entity_id ON YOUR_LIB.eav_data (entity_id);
+CREATE INDEX idx_attribute_key ON YOUR_LIB.eav_data (attribute_key);
+
+CREATE TABLE YOUR_LIB.eav_metadata (
+    id INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+    entity_id VARCHAR(255) NOT NULL,
+    metadata_key VARCHAR(255) NOT NULL,
+    metadata_type VARCHAR(255) NOT NULL,
+    metadata_value CLOB(1M),
+    PRIMARY KEY (id)
+);
+
+CREATE INDEX idx_metadata_key ON eav_metadata (metadata_key);
+CREATE INDEX idx_metadata_type ON eav_metadata (metadata_type);
+CREATE INDEX idx_metadata_entity_id ON eav_metadata (entity_id);

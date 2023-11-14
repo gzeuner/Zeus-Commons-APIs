@@ -54,7 +54,7 @@ CREATE TABLE AGENT_REVENUE (
 CREATE TABLE eav_data (
     entity_id VARCHAR(255) NOT NULL,
     attribute_key VARCHAR(255) NOT NULL,
-    attribute_value TEXT,
+    attribute_value TEXT NOT NULL,
     PRIMARY KEY (entity_id, attribute_key)
 );
 
@@ -67,7 +67,7 @@ CREATE TABLE eav_metadata (
     entity_id VARCHAR(255) NOT NULL,
     metadata_key VARCHAR(255) NOT NULL,
     metadata_type VARCHAR(255) NOT NULL,
-    metadata_value TEXT
+    metadata_value TEXT NOT NULL
 );
 
 CREATE INDEX idx_metadata_key ON eav_metadata (metadata_key);
