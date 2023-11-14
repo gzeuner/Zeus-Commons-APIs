@@ -1,4 +1,6 @@
-package de.zeus.commons.provider.model;
+package de.zeus.commons.consumer.model;
+
+import de.zeus.commons.provider.model.MetaData;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -62,5 +64,17 @@ public class DynamicJsonObject {
 
         sb.append(indent).append("}\n");
         return sb.toString();
+    }
+
+    public Map<String, Object> getAttributes() {
+        return attributes;
+    }
+
+    public Map<String, MetaData> getMetadata() {
+        return metadata;
+    }
+
+    public String getId() {
+        return UniqueIdGenerator.generateUniqueId(this);
     }
 }

@@ -52,13 +52,24 @@ CREATE TABLE AGENT_REVENUE (
 -- Create Entity Attribute Value table
 
 CREATE TABLE eav_data (
-    entity_id INT NOT NULL,
+    entity_id VARCHAR(255) NOT NULL,
     attribute_key VARCHAR(255) NOT NULL,
     attribute_value TEXT,
-    attribute_type VARCHAR(50),
     PRIMARY KEY (entity_id, attribute_key)
 );
 
 CREATE INDEX idx_entity_id ON eav_data (entity_id);
 CREATE INDEX idx_attribute_key ON eav_data (attribute_key);
 
+
+CREATE TABLE eav_metadata (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    entity_id VARCHAR(255) NOT NULL,
+    metadata_key VARCHAR(255) NOT NULL,
+    metadata_type VARCHAR(255) NOT NULL,
+    metadata_value TEXT
+);
+
+CREATE INDEX idx_metadata_key ON eav_metadata (metadata_key);
+CREATE INDEX idx_metadata_type ON eav_metadata (metadata_type);
+CREATE INDEX idx_metadata_entity_id ON eav_metadata (entity_id);

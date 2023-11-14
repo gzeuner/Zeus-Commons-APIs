@@ -1,4 +1,4 @@
-package de.zeus.commons.connector.jdbc.config;
+package de.zeus.commons.base.config;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
@@ -7,8 +7,8 @@ import org.apache.commons.dbcp2.BasicDataSource;
  */
 public class DataSource {
 
-	private BasicDataSource basicDataSource = new BasicDataSource();
-	private JdbcConfig conf;
+	private final BasicDataSource basicDataSource = new BasicDataSource();
+	private final JdbcConfig conf;
 
 	// Singleton instance of DataSource
 	public static DataSource dataSource = new DataSource();

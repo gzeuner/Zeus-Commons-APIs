@@ -2,9 +2,10 @@ package de.zeus.commons.provider;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import de.zeus.commons.base.config.ConfigWrapper;
 import de.zeus.commons.base.interfaces.IConnectionController;
-import de.zeus.commons.connector.jdbc.config.JdbcConfig;
-import de.zeus.commons.connector.jdbc.config.SparkConfig;
+import de.zeus.commons.base.config.JdbcConfig;
+import de.zeus.commons.base.config.SparkConfig;
 import de.zeus.commons.file.FileUtils;
 import de.zeus.commons.provider.logic.sql.ConnectionControllerFactory;
 import de.zeus.commons.provider.service.HttpServer;
@@ -21,7 +22,7 @@ public class Provider {
 
     public static void main(String[] args) {
 
-        ProviderConfig config = parseArgs(args);
+        ConfigWrapper config = parseArgs(args);
         Provider.initConfig(config);
         ConnectionControllerFactory controllerFactory = new ConnectionControllerFactory();
 
@@ -33,9 +34,9 @@ public class Provider {
 
     }
 
-    public static ProviderConfig parseArgs(String[] args) {
+    public static ConfigWrapper parseArgs(String[] args) {
 
-        ProviderConfig config = new ProviderConfig();
+        ConfigWrapper config = new ConfigWrapper();
         try {
             String runMode = args[0];
             if (runMode.equals("REST")) {
@@ -103,7 +104,7 @@ public class Provider {
         }
     }
 
-    private static void initConfig(ProviderConfig config) {
+    private static void initConfig(ConfigWrapper config) {
 
         if(config.getJdbcConfig() != null) {
             LOG.debug("Loading JdbcConfig");

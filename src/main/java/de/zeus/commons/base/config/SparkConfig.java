@@ -1,6 +1,4 @@
-package de.zeus.commons.connector.jdbc.config;
-
-import de.zeus.commons.provider.Provider;
+package de.zeus.commons.base.config;
 
 /**
  * The `SparkConfig` class is responsible for configuring settings related to the Spark Java web framework
@@ -12,7 +10,7 @@ public class SparkConfig extends ConfigBase {
     /**
      * The single instance of the `SparkConfig` class.
      */
-    private static SparkConfig config = new SparkConfig();
+    private static final SparkConfig config = new SparkConfig();
 
     /**
      * Path to the properties file associated with this configuration.

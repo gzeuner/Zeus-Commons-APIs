@@ -1,6 +1,7 @@
 package de.zeus.commons.provider.model;
 
 import de.zeus.commons.provider.format.Format;
+import de.zeus.commons.provider.model.TableInfo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class MetaData {
 	private final List<TableInfo> tableInfoList = new ArrayList<>();
 
 	// Formatting object
-	private Format format = new Format();
+	private final Format format = new Format();
 
 	public int getColumnNumber() {
 		return columnNumber;

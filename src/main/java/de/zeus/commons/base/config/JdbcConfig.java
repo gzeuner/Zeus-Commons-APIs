@@ -1,4 +1,4 @@
-package de.zeus.commons.connector.jdbc.config;
+package de.zeus.commons.base.config;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -68,7 +68,7 @@ public class JdbcConfig extends ConfigBase {
 	/**
 	 * A single instance of the `JdbcConfig` class.
 	 */
-	private static JdbcConfig config = new JdbcConfig();
+	private static final JdbcConfig config = new JdbcConfig();
 
 	/**
 	 * Private constructor to enforce a singleton pattern and specify the properties file path.

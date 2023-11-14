@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import de.zeus.commons.base.interfaces.IConnectionController;
 import de.zeus.commons.base.interfaces.IJdbcOperations;
 import de.zeus.commons.connector.jdbc.ProcessingException;
+import de.zeus.commons.provider.model.MetaData;
 import de.zeus.commons.provider.service.JsonRequestProcessor;
 import de.zeus.commons.base.constants.IConstants;
 import de.zeus.commons.provider.convert.DataToJSON;

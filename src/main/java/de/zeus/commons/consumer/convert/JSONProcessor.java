@@ -3,7 +3,7 @@ package de.zeus.commons.consumer.convert;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import de.zeus.commons.provider.model.DynamicJsonObject;
+import de.zeus.commons.consumer.model.DynamicJsonObject;
 import de.zeus.commons.provider.model.MetaData;
 
 import static de.zeus.commons.base.constants.IConstants.*;

@@ -1,8 +1,5 @@
-package de.zeus.commons.connector.jdbc.config;
+package de.zeus.commons.base.config;
 
-import de.zeus.commons.provider.Provider;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

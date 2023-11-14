@@ -14,10 +14,10 @@ import de.zeus.commons.connector.jdbc.JdbcOperations;
 public class ConnectionControllerFactory {
 
     /** Member variable for JDBC operations */
-    private IJdbcOperations jdbcOperations;
+    private final IJdbcOperations jdbcOperations;
 
     /** Member variable for the connection controller */
-    private IConnectionController connectionController;
+    private final IConnectionController connectionController;
 
     /**
      * Constructor for ConnectionControllerFactory.

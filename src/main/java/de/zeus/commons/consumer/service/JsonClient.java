@@ -1,56 +1,34 @@
 package de.zeus.commons.consumer.service;
 
+import de.zeus.commons.connector.jdbc.JdbcOperations;
+import de.zeus.commons.connector.jdbc.ProcessingException;
 import de.zeus.commons.consumer.convert.JSONProcessor;
-import de.zeus.commons.file.FileUtils;
-import de.zeus.commons.provider.model.DynamicJsonObject;
+import de.zeus.commons.consumer.model.DynamicJsonObject;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.sql.SQLException;
 import java.util.stream.Collectors;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static de.zeus.commons.base.constants.IConstants.MODE_JSON;
 
 public class JsonClient {
 
     private static final Logger LOG = Logger.getLogger(JsonClient.class.getName());
+    private final JdbcOperations jdbcOperations;
 
-    public static void main(String[] args) {
-        if (args.length < 2) {
-            LOG.log(Level.SEVERE,"Missing arguments. Please enter the file name and the service URL as arguments.");
-            return;
-        }
-
-        String serviceUrl = args[0];
-        String filePath = args[1];
-
-        URL url;
-        try {
-            url = new URL(serviceUrl);
-        } catch (MalformedURLException e) {
-            LOG.log(Level.SEVERE,"Malformed URL: " + serviceUrl, e);
-            return;
-        }
-
-        FileUtils fileUtils = new FileUtils();
-        try {
-            String jsonInputString = fileUtils.readFileToString(filePath);
-            JsonClient client = new JsonClient();
-            client.sendRequest(url, jsonInputString);
-        } catch (IOException e) {
-            LOG.log(Level.SEVERE,"Error reading the file:" + filePath, e);
-        }
+    public JsonClient(JdbcOperations jdbcOperation) {
+        this.jdbcOperations = jdbcOperation;
     }
 
-    public void sendRequest(URL url, String jsonInputString) {
+    public void sendRequestToService(URL url, String jsonInputString) {
         HttpURLConnection conn = null;
         try {
             conn = (HttpURLConnection) url.openConnection();
@@ -71,6 +49,11 @@ public class JsonClient {
 
                 LOG.info("Processed JSON:");
                 LOG.info(result.toPrettyString());
+
+                // Save the processed JSON data in the database
+                jdbcOperations.insertDynamicJsonObject(result);
+            } catch (SQLException | ProcessingException throwables) {
+                LOG.log(Level.SEVERE,"Error inserting DynJsonData.");
             }
         } catch (IOException e) {
             LOG.log(Level.SEVERE,"Error sending the request to " + url, e);
