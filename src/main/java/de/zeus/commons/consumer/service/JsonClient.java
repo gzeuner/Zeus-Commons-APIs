@@ -14,20 +14,37 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
 import java.util.stream.Collectors;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import static de.zeus.commons.base.constants.IConstants.MODE_JSON;
 
+/**
+ * The JsonClient class is responsible for sending JSON requests to a specified service URL
+ * and processing the JSON response. It uses JdbcOperations to interact with the database.
+ */
 public class JsonClient {
 
-    private static final Logger LOG = Logger.getLogger(JsonClient.class.getName());
+    private static final Log LOG = LogFactory.getLog(JsonClient.class) ;
+
     private final JdbcOperations jdbcOperations;
 
+    /**
+     * Constructs a JsonClient with specified JDBC operations.
+     *
+     * @param jdbcOperation The JDBC operations to be used for database interactions.
+     */
     public JsonClient(JdbcOperations jdbcOperation) {
         this.jdbcOperations = jdbcOperation;
     }
 
+    /**
+     * Sends a JSON request to a specified URL and processes the response.
+     * The processed JSON data is then saved in the database.
+     *
+     * @param url The URL to which the request is sent.
+     * @param jsonInputString The JSON string to be sent as a request.
+     */
     public void sendRequestToService(URL url, String jsonInputString) {
         HttpURLConnection conn = null;
         try {
@@ -52,15 +69,16 @@ public class JsonClient {
 
                 // Save the processed JSON data in the database
                 jdbcOperations.insertDynamicJsonObject(result);
-            } catch (SQLException | ProcessingException throwables) {
-                LOG.log(Level.SEVERE,"Error inserting DynJsonData.");
+                LOG.info("JSON data inserted successfully into the database.");
+            } catch (SQLException | ProcessingException e) {
+                LOG.error( "Error processing or inserting JSON data into the database.", e);
             }
         } catch (IOException e) {
-            LOG.log(Level.SEVERE,"Error sending the request to " + url, e);
+            LOG.error("Error sending the request to " + url, e);
         } finally {
             if (conn != null) {
                 conn.disconnect();
-                LOG.info("Connection disconnected from " + url);
+                LOG.info("Disconnected from URL: " + url);
             }
         }
     }

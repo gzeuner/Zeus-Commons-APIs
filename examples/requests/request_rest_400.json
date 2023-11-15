@@ -1,0 +1,19 @@
+{
+  "query": {
+    "name": "agents",
+    "statement": "select * from your_lib.agents",
+    "subquery": {
+      "name": "orders",
+      "statement": "select * from your_lib.orders where agent_code = '[$agent_code]'",
+      "subquery": {
+        "name": "customers",
+        "statement": "select * from your_lib.customers where cust_code = '[$cust_code]'",
+        "subquery": {
+          "name": "revenue",
+          "statement": "select * from your_lib.agent_revenue where agent_code = '[$agent_code]'"
+        }
+      }
+    }
+  },
+  "includeMetadata": true
+}

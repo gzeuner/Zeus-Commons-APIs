@@ -45,19 +45,37 @@ public class FileUtils {
         }
     }
     /**
-     * Reads the content of a file and returns it as a string.
+     * Reads the content of a file or a resource within the JAR and returns it as a string.
      *
-     * @param filePath The path to the file.
-     * @return The content of the file as a string.
+     * @param path The path to the file or the resource within the JAR.
+     * @return The content of the file or resource as a string.
      * @throws IOException If an input/output error occurs.
      */
-    public String readFileToString(String filePath) throws IOException {
-        String contentBuilder;
-        try (BufferedReader reader = new BufferedReader(
-                new InputStreamReader(new FileInputStream(filePath), StandardCharsets.UTF_8))) {
-            contentBuilder = reader.lines().collect(Collectors.joining());
+    public String readFileToString(String path) throws IOException {
+        // First try to read the resource as a file
+        File file = new File(path);
+        if (file.exists() && !file.isDirectory()) {
+            return readFromFile(file);
+        } else {
+            // Attempts to read the resource from the JAR
+            InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path);
+            if (inputStream == null) {
+                throw new FileNotFoundException("File or resource not found: " + path);
+            }
+            return readFromInputStream(inputStream);
         }
-        return contentBuilder;
+    }
+
+    private String readFromFile(File file) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
+            return reader.lines().collect(Collectors.joining());
+        }
+    }
+
+    private String readFromInputStream(InputStream inputStream) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))) {
+            return reader.lines().collect(Collectors.joining());
+        }
     }
 
 }

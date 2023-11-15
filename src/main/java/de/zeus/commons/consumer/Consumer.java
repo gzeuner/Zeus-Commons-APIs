@@ -29,33 +29,15 @@ public class Consumer {
 
         initConfig(config);
 
-        String jsonRequestFilePath = args[3]; // The path of the JSON request file
-
-        // Get service URL from JsonClientConfig
-        String serviceUrl = JsonClientConfig.getInstance().getServiceUrl();
-        URL url;
-        try {
-            url = new URL(serviceUrl);
-        } catch (MalformedURLException e) {
-            LOG.error("Malformed URL: " + serviceUrl, e);
-            return;
-        }
-
-        JsonClient jsonClient = new JsonClient(new JdbcOperations());
-        FileUtils fileUtils = new FileUtils();
-        String jsonRequest;
-        try {
-            jsonRequest = fileUtils.readFileToString(jsonRequestFilePath);
-        } catch (IOException e) {
-            LOG.error("Error reading File: " + jsonRequestFilePath, e);
-            return;
-        }
-        jsonClient.sendRequestToService(url, jsonRequest);
+        // Load the JSON template from the properties and send the request
+        JsonClientConfig jsonClientConfig = JsonClientConfig.getInstance();
+        String jsonRequestFilePath = jsonClientConfig.getServiceRequestJson();
+        sendJsonRequest(jsonClientConfig, jsonRequestFilePath);
     }
 
     private static ConfigWrapper parseArgs(String[] args) {
-        if (args.length != 4 || !"JSON_EAV".equals(args[0])) {
-            LOG.error("Invalid arguments. Usage: JSON_EAV <jdbc-properties-file> <json-client-config-file> <json-request-file>");
+        if (args.length != 3 || !"JSON_EAV".equals(args[0])) {
+            LOG.error("Invalid arguments. Usage: JSON_EAV <jdbc-properties-file> <json-client-config-file>");
             return null;
         }
         ConfigWrapper config = new ConfigWrapper();
@@ -79,4 +61,17 @@ public class Consumer {
             LOG.info("JsonClient Configuration loaded.");
         }
     }
+
+    private static void sendJsonRequest(JsonClientConfig jsonClientConfig, String jsonRequestFilePath) {
+        try {
+            JsonClient jsonClient = new JsonClient(new JdbcOperations());
+            FileUtils fileUtils = new FileUtils();
+            String jsonRequest = fileUtils.readFileToString(jsonRequestFilePath);
+            jsonClient.sendRequestToService(new URL(jsonClientConfig.getServiceUrl()), jsonRequest);
+            LOG.info("Request sent with JSON from " + jsonRequestFilePath);
+        } catch (IOException e) {
+            LOG.error("Error processing JSON request from file: " + jsonRequestFilePath, e);
+        }
+    }
+
 }
