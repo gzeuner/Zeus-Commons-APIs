@@ -74,6 +74,19 @@ Es ist auch möglich, mehrere Profile gleichzeitig zu verwenden, um eine Kombina
 ```bash
 mvn clean install -P include-jt400,include-ssl,fat-jar
 ```
+
+#Provider
+Der Provider fungiert als Einstiegspunkt, um die Anwendung als REST-Service oder über die Konsole zu betreiben. Er behandelt Befehlszeilenargumente, initialisiert die notwendigen Komponenten und startet den Service.
+Aufruf des Provider als REST-Service:
+
+```bash
+java -cp zeus-commons-0.0.1-SNAPSHOT.jar de.zeus.commons.provider.Provider "REST" "<pfad-zur-jdbc-properties-datei>" "<pfad-zur-spark-properties-datei>"
+```
+Aufruf des Provider über die Konsole:
+```bash
+java -cp zeus-commons-0.0.1-SNAPSHOT.jar de.zeus.commons.provider.Provider "CONSOLE" "<pfad-zur-jdbc-properties-datei>" "<json-query-objekt>" "<modus>"
+```
+Als 'mode' kann application/xml oder application/xml angegeben werden, um das Ausgabeformat zu steuern. 
 ## License:
 [Apache 2.0](LICENSE)
 ## Besuchen Sie:
@@ -153,6 +166,19 @@ It is also possible to use several profiles at the same time to get a combinatio
 ```bash
 mvn clean install -P include-jt400,include-ssl,fat-jar
 ```
+#Provider
+The provider acts as an entry point to run the application as a REST service or via the console. It handles command line arguments, initializes the necessary components and starts the service.
+Calling the provider as a REST service:
+
+```bash
+java -cp zeus-commons-0.0.1-SNAPSHOT.jar de.zeus.commons.provider.Provider "REST" "<path-to-jdbc-properties-file>" "<path-to-spark-properties-file>"
+```
+Aufruf des Provider über die Konsole:
+```bash
+java -cp zeus-commons-0.0.1-SNAPSHOT.jar de.zeus.commons.provider.Provider "CONSOLE" "<path-to-jdbc-properties-file>" "<json-query-object>" "<mode>"
+```
+Application/xml or application/xml can be specified as 'mode' to control the output format.
+
 ## License:
 [Apache 2.0](LICENSE)
 ## Visit
