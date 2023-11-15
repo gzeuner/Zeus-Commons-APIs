@@ -87,6 +87,15 @@ Aufruf des Provider über die Konsole:
 java -cp zeus-commons-0.0.1-SNAPSHOT.jar de.zeus.commons.provider.Provider "CONSOLE" "<pfad-zur-jdbc-properties-datei>" "<json-query-objekt>" "<modus>"
 ```
 Als 'mode' kann application/xml oder application/xml angegeben werden, um das Ausgabeformat zu steuern. 
+
+### Consumer
+Der Consumer dient als Einstiegspunkt für den Clientbetrieb des Systems. Er verarbeitet Befehlszeilenargumente und sendet eine JSON-Anfrage an eine spezifizierte Service-URL. Die Konfiguration erfolgt über Properties-Dateien.
+
+Aufruf des Consumer:
+```bash
+java -cp zeus-commons-0.0.1-SNAPSHOT.jar de.zeus.commons.consumer.Consumer "JSON_EAV" "<path-to-jdbc-properties-file>" "<path-to-jsonclient-properties-file>"
+```
+
 ## License:
 [Apache 2.0](LICENSE)
 ## Besuchen Sie:
@@ -178,6 +187,14 @@ How to run the Provider from the console:
 java -cp zeus-commons-0.0.1-SNAPSHOT.jar de.zeus.commons.provider.Provider "CONSOLE" "<path-to-jdbc-properties-file>" "<json-query-object>" "<mode>"
 ```
 Application/xml or application/xml can be specified as 'mode' to control the output format.
+
+### Consumer
+The Consumer serves as the entry point for client operation of the system. It processes command line arguments and sends a JSON request to a specified service URL. Configuration is done via properties files.
+
+How to run the Consumer:
+```bash
+java -cp zeus-commons-0.0.1-SNAPSHOT.jar de.zeus.commons.consumer.Consumer "JSON_EAV" "<path-to-jdbc-properties-file>" "<path-to-jsonclient-properties-file>"
+```
 
 ## License:
 [Apache 2.0](LICENSE)
