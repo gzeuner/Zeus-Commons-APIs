@@ -168,12 +168,12 @@ mvn clean install -P include-jt400,include-ssl,fat-jar
 ```
 ### Provider
 The provider acts as an entry point to run the application as a REST service or via the console. It handles command line arguments, initializes the necessary components and starts the service.
-Calling the provider as a REST service:
+How to run the Provider as REST Service:
 
 ```bash
 java -cp zeus-commons-0.0.1-SNAPSHOT.jar de.zeus.commons.provider.Provider "REST" "<path-to-jdbc-properties-file>" "<path-to-spark-properties-file>"
 ```
-Aufruf des Provider über die Konsole:
+How to run the Provider from the console:
 ```bash
 java -cp zeus-commons-0.0.1-SNAPSHOT.jar de.zeus.commons.provider.Provider "CONSOLE" "<path-to-jdbc-properties-file>" "<json-query-object>" "<mode>"
 ```
