@@ -1,3 +1,12 @@
+-- =============================================
+-- insertData.sql - Beispiel-Daten für Db2 for i
+-- Zweck: Fügt Beispieldaten in die Tabellen ein
+-- Hinweis: Muss nach createTables.sql ausgeführt werden
+-- Ausführung: db2 -t -f insertData.sql
+-- =============================================
+
+SET SCHEMA YOUR_LIB;
+
 -- Add new records to the AGENTS table
 INSERT INTO AGENTS (AGENT_CODE, AGENT_NAME, WORKING_AREA, COMMISSION, PHONE_NO, COUNTRY)
 VALUES

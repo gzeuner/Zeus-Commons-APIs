@@ -1,9 +1,18 @@
+-- =============================================
+-- createTables.sql - Beispiel-Tabellen für Db2 for i
+-- Zweck: Erstellt Beispieltabellen (Sales, Orders, EAV) in Library YOUR_LIB
+-- Hinweis: Ersetze YOUR_LIB durch deine Test-Library (SET SCHEMA)
+-- Ausführung: db2 -t -f createTables.sql
+-- =============================================
+
+SET SCHEMA YOUR_LIB;
+
 -- Create the AGENTS table with a primary key constraint
 CREATE TABLE AGENTS (
    AGENT_CODE    VARCHAR(6)            NOT NULL,
    AGENT_NAME    VARCHAR(40)           NOT NULL,
    WORKING_AREA  VARCHAR(35)           NOT NULL,
-   COMMISSION    DECIMAL(10,2)         NOT NULL,
+   COMMISSION    DECIMAL(10, 2)        NOT NULL,
    PHONE_NO      VARCHAR(15)           NOT NULL,
    COUNTRY       VARCHAR(25)           NOT NULL,
    PRIMARY KEY (AGENT_CODE)
@@ -17,10 +26,10 @@ CREATE TABLE CUSTOMERS (
    WORKING_AREA     VARCHAR(35)         NOT NULL,
    CUST_COUNTRY     VARCHAR(20)         NOT NULL,
    GRADE            INTEGER             NOT NULL,
-   OPENING_AMT      DECIMAL(12,2)       NOT NULL,
-   RECEIVE_AMT      DECIMAL(12,2)       NOT NULL,
-   PAYMENT_AMT      DECIMAL(12,2)       NOT NULL,
-   OUTSTANDING_AMT  DECIMAL(12,2)       NOT NULL,
+   OPENING_AMT      DECIMAL(12, 2)      NOT NULL,
+   RECEIVE_AMT      DECIMAL(12, 2)      NOT NULL,
+   PAYMENT_AMT      DECIMAL(12, 2)      NOT NULL,
+   OUTSTANDING_AMT  DECIMAL(12, 2)      NOT NULL,
    PHONE_NO         VARCHAR(17)         NOT NULL,
    AGENT_CODE       VARCHAR(6)          NOT NULL,
    PRIMARY KEY (CUST_CODE),
@@ -30,8 +39,8 @@ CREATE TABLE CUSTOMERS (
 -- Create the ORDERS table with primary key and foreign key constraints
 CREATE TABLE ORDERS (
    ORD_NUM          DECIMAL(6)          NOT NULL,
-   ORD_AMOUNT       DECIMAL(12,2)       NOT NULL,
-   ADVANCE_AMOUNT   DECIMAL(12,2)       NOT NULL,
+   ORD_AMOUNT       DECIMAL(12, 2)      NOT NULL,
+   ADVANCE_AMOUNT   DECIMAL(12, 2)      NOT NULL,
    ORD_DATE         DATE                NOT NULL,
    CUST_CODE        VARCHAR(6)          NOT NULL,
    AGENT_CODE       VARCHAR(6)          NOT NULL,
@@ -45,31 +54,29 @@ CREATE TABLE ORDERS (
 CREATE TABLE AGENT_REVENUE (
    AGENT_CODE          VARCHAR(6)        NOT NULL,
    AGENT_NAME          VARCHAR(40)       NOT NULL,
-   CUMULATIVE_REVENUE  DECIMAL(12,2)     NOT NULL,
+   CUMULATIVE_REVENUE  DECIMAL(12, 2)    NOT NULL,
    PRIMARY KEY (AGENT_CODE)
 );
 
--- Create Entity Attribute Value table
-
-CREATE TABLE eav_data (
-    entity_id VARCHAR(255) NOT NULL,
-    attribute_key VARCHAR(255) NOT NULL,
-    attribute_value TEXT NOT NULL,
-    PRIMARY KEY (entity_id, attribute_key)
+-- Create Entity Attribute Value (EAV) tables
+CREATE TABLE EAV_DATA (
+    ENTITY_ID VARCHAR(255) NOT NULL,
+    ATTRIBUTE_KEY VARCHAR(255) NOT NULL,
+    ATTRIBUTE_VALUE CLOB(1M) NOT NULL,
+    PRIMARY KEY (ENTITY_ID, ATTRIBUTE_KEY)
 );
 
-CREATE INDEX idx_entity_id ON eav_data (entity_id);
-CREATE INDEX idx_attribute_key ON eav_data (attribute_key);
+CREATE INDEX IDX_ENTITY_ID ON EAV_DATA (ENTITY_ID);
+CREATE INDEX IDX_ATTRIBUTE_KEY ON EAV_DATA (ATTRIBUTE_KEY);
 
-
-CREATE TABLE eav_metadata (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    entity_id VARCHAR(255) NOT NULL,
-    metadata_key VARCHAR(255) NOT NULL,
-    metadata_type VARCHAR(255) NOT NULL,
-    metadata_value TEXT NOT NULL
+CREATE TABLE EAV_METADATA (
+    ID INT NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1),
+    ENTITY_ID VARCHAR(255) NOT NULL,
+    METADATA_KEY VARCHAR(255) NOT NULL,
+    METADATA_TYPE VARCHAR(255) NOT NULL,
+    METADATA_VALUE CLOB(1M),
+    PRIMARY KEY (ID)
 );
 
-CREATE INDEX idx_metadata_key ON eav_metadata (metadata_key);
-CREATE INDEX idx_metadata_type ON eav_metadata (metadata_type);
-CREATE INDEX idx_metadata_entity_id ON eav_metadata (entity_id);
+CREATE INDEX IDX_METADATA_KEY ON EAV_METADATA (METADATA_KEY);
+CREATE INDEX IDX_METADATA_TYPE ON EAV_METADATA (METADATA_TYPE);
