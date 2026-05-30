@@ -1,5 +1,14 @@
+-- =============================================
+-- insertData.sql - Beispiel-Daten für Db2 for i
+-- Zweck: Fügt Beispieldaten in die Tabellen ein
+-- Hinweis: Muss nach createTables.sql ausgeführt werden
+-- Ausführung: db2 -t -f insertData.sql
+-- =============================================
+
+SET SCHEMA YOUR_LIB;
+
 -- Add new records to the AGENTS table
-INSERT INTO YOUR_LIB.AGENTS (AGENT_CODE, AGENT_NAME, WORKING_AREA, COMMISSION, PHONE_NO, COUNTRY)
+INSERT INTO AGENTS (AGENT_CODE, AGENT_NAME, WORKING_AREA, COMMISSION, PHONE_NO, COUNTRY)
 VALUES
     ('A101', 'John Smith', 'Berlin', 10.5, '1234567890', 'Germany'),
     ('A102', 'Maria García', 'Paris', 12.0, '9876543210', 'France'),
@@ -8,7 +17,7 @@ VALUES
     ('A105', 'James Johnson', 'London', 13.0, '6789012345', 'UK');
 
 -- Add new records to the CUSTOMERS table
-INSERT INTO YOUR_LIB.CUSTOMERS (CUST_CODE, CUST_NAME, CUST_CITY, WORKING_AREA, CUST_COUNTRY, GRADE, OPENING_AMT, RECEIVE_AMT, PAYMENT_AMT, OUTSTANDING_AMT, PHONE_NO, AGENT_CODE)
+INSERT INTO CUSTOMERS (CUST_CODE, CUST_NAME, CUST_CITY, WORKING_AREA, CUST_COUNTRY, GRADE, OPENING_AMT, RECEIVE_AMT, PAYMENT_AMT, OUTSTANDING_AMT, PHONE_NO, AGENT_CODE)
 VALUES
     ('C101', 'Luisa Torres', 'Berlin', 'Berlin', 'Germany', 1, 5000.00, 3000.00, 2000.00, 1000.00, '+491122334455', 'A101'),
     ('C102', 'Sven Hansen', 'Paris', 'Paris', 'France', 2, 6000.00, 3500.00, 2500.00, 1500.00, '+331122334455', 'A102'),
@@ -22,7 +31,7 @@ VALUES
     ('C110', 'Oliver Smith', 'London', 'London', 'UK', 5, 9200.00, 5200.00, 4200.00, 1000.00, '+441122334411', 'A105');
 
 -- Add new records to the ORDERS table
-INSERT INTO YOUR_LIB.ORDERS (ORD_NUM, ORD_AMOUNT, ADVANCE_AMOUNT, ORD_DATE, CUST_CODE, AGENT_CODE, ORD_DESCRIPTION)
+INSERT INTO ORDERS (ORD_NUM, ORD_AMOUNT, ADVANCE_AMOUNT, ORD_DATE, CUST_CODE, AGENT_CODE, ORD_DESCRIPTION)
 VALUES
     (1, 1000.00, 500.00, '2023-09-10', 'C101', 'A101', 'Luxuriöse Urlaubsbuchung für eine Traumreise'),
     (2, 1500.00, 700.00, '2023-09-09', 'C102', 'A102', 'Commande exclusive de bijoux artisanaux'),
@@ -46,14 +55,14 @@ VALUES
     (20, 1500.00, 700.00, '2023-08-22', 'C105', 'A105', 'Zusätzliches Zubehör für das Smartphone');
 
 -- Insert the accumulated sales for each agent into AGENT_REVENUE
-INSERT INTO YOUR_LIB.AGENT_REVENUE (AGENT_CODE, AGENT_NAME, CUMULATIVE_REVENUE)
+INSERT INTO AGENT_REVENUE (AGENT_CODE, AGENT_NAME, CUMULATIVE_REVENUE)
 SELECT 
     O.AGENT_CODE, 
     A.AGENT_NAME,
     SUM(O.ORD_AMOUNT)
 FROM 
-    YOUR_LIB.ORDERS O
+    ORDERS O
 JOIN
-    YOUR_LIB.AGENTS A ON O.AGENT_CODE = A.AGENT_CODE
+    AGENTS A ON O.AGENT_CODE = A.AGENT_CODE
 GROUP BY 
     O.AGENT_CODE, A.AGENT_NAME;
