@@ -35,6 +35,3 @@ db2 -tvf createTables.sql
 - Alle Skripte verwenden `SET SCHEMA YOUR_LIB;` – Tabellen müssen nicht mehr qualifiziert werden.
 - Kompatibel mit `db2 -t -f` (Semikolon als Terminator).
 - EAV-Beispiel zeigt einfache Entity-Attribute-Value-Modellierung.
-- Statische Validierung abgeschlossen. Echte IBM-i-Ausführung nicht verfügbar in dieser Umgebung.
-
-**Static validation completed; runtime execution on IBM i was not available.**
